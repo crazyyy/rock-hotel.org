@@ -13,11 +13,11 @@
         <!-- endbuild -->
 
         <!-- build:css({.tmp,app}) styles/main.css -->
-        <link rel="stylesheet" href="styles/main.css">
+        <?php wp_head(); ?>
         <!-- endbuild -->
 
         <!-- build:js scripts/vendor/modernizr.js -->
-        <script src="bower_components/modernizr/modernizr.js"></script>
+        <script src="<?php echo get_template_directory_uri(); ?>/bower_components/modernizr/modernizr.js"></script>
         <!-- endbuild -->
     </head>
     <body>

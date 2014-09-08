@@ -10,17 +10,17 @@ var gutil = require('gulp-util');
 var $ = require('gulp-load-plugins')();
 
 gulp.task('styles', function () {
-    return gulp.src('app/styles/main.scss')
+    return gulp.src('wp-rock/css/main.scss')
         .pipe($.sass({errLogToConsole: true}))
         .pipe($.autoprefixer('last 1 version'))
-        .pipe(gulp.dest('app/styles'))
+        .pipe(gulp.dest('wp-rock/css'))
         .pipe(reload({stream:true}))
         .pipe($.size())
         .pipe($.notify("Compilation complete."));;
 });
 
 gulp.task('scripts', function () {
-    return gulp.src('app/scripts/**/*.js')
+    return gulp.src('wp-rock/scripts/**/*.js')
         .pipe($.jshint())
         .pipe($.jshint.reporter(require('jshint-stylish')))
         .pipe($.size());
@@ -30,7 +30,7 @@ gulp.task('html', ['styles', 'scripts'], function () {
     var jsFilter = $.filter('**/*.js');
     var cssFilter = $.filter('**/*.css');
 
-    return gulp.src('app/*.html')
+    return gulp.src('wp-rock/*.php')
         .pipe($.useref.assets())
         .pipe(jsFilter)
         .pipe($.uglify())
@@ -45,7 +45,7 @@ gulp.task('html', ['styles', 'scripts'], function () {
 });
 
 gulp.task('images', function () {
-    return gulp.src('app/img/**/*')
+    return gulp.src('wp-rock/img/**/*')
         .pipe($.cache($.imagemin({
             optimizationLevel: 3,
             progressive: true,
@@ -60,7 +60,7 @@ gulp.task('fonts', function () {
     var streamqueue = require('streamqueue');
     return streamqueue({objectMode: true},
         $.bowerFiles(),
-        gulp.src('app/fonts/**/*')
+        gulp.src('wp-rock/fonts/**/*')
     )
         .pipe($.filter('**/*.{eot,svg,ttf,woff}'))
         .pipe($.flatten())
@@ -69,7 +69,7 @@ gulp.task('fonts', function () {
 });
 
 gulp.task('clean', function () {
-    return gulp.src(['app/styles/main.css', 'dist'], { read: false }).pipe($.clean());
+    return gulp.src(['wp-rock/css/main.css', 'dist'], { read: false }).pipe($.clean());
 });
 
 gulp.task('build', ['html', 'images', 'fonts']);
@@ -81,7 +81,7 @@ gulp.task('default', ['clean'], function () {
 gulp.task('serve', ['styles'], function () {
     browserSync.init(null, {
         server: {
-            baseDir: 'app',
+            baseDir: 'wp-rock',
             directory: true
         },
         debugInfo: false,
@@ -96,26 +96,26 @@ gulp.task('serve', ['styles'], function () {
 // inject bower components
 gulp.task('wiredep', function () {
     var wiredep = require('wiredep').stream;
-    gulp.src('app/styles/*.scss')
+    gulp.src('wp-rock/css/*.scss')
         .pipe(wiredep({
-            directory: 'app/bower_components'
+            directory: 'wp-rock/bower_components'
         }))
-        .pipe(gulp.dest('app/styles'));
-    gulp.src('app/*.html')
+        .pipe(gulp.dest('wp-rock/css'));
+    gulp.src('wp-rock/*.php')
         .pipe(wiredep({
-            directory: 'app/bower_components',
+            directory: 'wp-rock/bower_components',
             exclude: ['bootstrap-sass-official']
         }))
-        .pipe(gulp.dest('app'));
+        .pipe(gulp.dest('wp-rock'));
 });
 
-gulp.task('watch', ['serve'], function () {
+gulp.task('watch', /* ['serve'], */ function () {
  
     // watch for changes
-    gulp.watch(['app/*.html'], reload);
+    gulp.watch(['wp-rock/*.php'], reload);
  
-    gulp.watch('app/styles/**/*.scss', ['styles']);
-    gulp.watch('app/scripts/**/*.js', ['scripts']);
-    gulp.watch('app/img/**/*', ['images']);
+    gulp.watch('wp-rock/css/**/*.scss', ['styles']);
+    gulp.watch('wp-rock/scripts/**/*.js', ['scripts']);
+    gulp.watch('wp-rock/img/**/*', ['images']);
     gulp.watch('bower.json', ['wiredep']);
 });
