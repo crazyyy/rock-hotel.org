@@ -45,8 +45,6 @@ add_action( 'wp_print_scripts', 'disableAutoSave' );
 //  Load styles
 //  RU: Подключение стилей
 function wpeStyles()    {
-    wp_register_style('normalize', get_template_directory_uri() . '/css/normalize.min.css', array(), '1.0', 'all');
-    wp_enqueue_style('normalize'); // Enqueue it!
     wp_register_style('wpeasy-style', get_template_directory_uri() . '/style.css', array(), '1.0', 'all');
     wp_enqueue_style('wpeasy-style'); // Enqueue it!
 }
@@ -68,7 +66,7 @@ function wpeHeaderScripts()
         wp_register_script('modernizr', 'http://cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js', array(), '2.6.2', true); // Modernizr
         wp_enqueue_script('modernizr'); // Enqueue it!
         
-        wp_register_script('wpeScripts', get_template_directory_uri() . '/js/scripts.js', array(), '1.0.0', true); // Custom scripts
+        wp_register_script('wpeScripts', get_template_directory_uri() . '/scripts/main.js', array(), '1.0.0', true); // Custom scripts
         wp_enqueue_script('wpeScripts'); // Enqueue it!
     }
 }
@@ -188,7 +186,7 @@ function wpeHeadNav()
 		'after'           => '',
 		'link_before'     => '',
 		'link_after'      => '',
-		'items_wrap'      => '<ul class="headnav">%3$s</ul>',
+		'items_wrap'      => '<ul class="nav nav-pills pull-right">%3$s</ul>',
 		'depth'           => 0,
 		'walker'          => ''
 		)
@@ -245,8 +243,8 @@ function wpeSideNav() {
 function register_html5_menu() {
     register_nav_menus(array( 
         'header-menu' => __('Меню в шапке', 'wpeasy'), 
-        'sidebar-menu' => __('Меню в сайдбар', 'wpeasy'), 
-        'footer-menu' => __('Меню в подвал', 'wpeasy') 
+        'sidebar-menu' => __('Дополнительное меню #1', 'wpeasy'), 
+        'footer-menu' => __('Дополнительное меню #2', 'wpeasy') 
     ));
 }
 //  If Dynamic Sidebar Existsов
@@ -255,7 +253,7 @@ if (function_exists('register_sidebar')) {
     //  Define Sidebar Widget Area 1
     //  RU: Активация первого виджета
     register_sidebar(array(
-        'name' => __('Блок виджетов #1', 'wpeasy'),
+        'name' => __('Блок виджетов слева', 'wpeasy'),
         'description' => __('Description for this widget-area...', 'wpeasy'),
         'id' => 'widgetarea1',
         'before_widget' => '<div id="%1$s" class="widget %2$s">',
@@ -263,19 +261,25 @@ if (function_exists('register_sidebar')) {
         'before_title' => '<h6>',
         'after_title' => '</h6>'
     ));
-    //  Define Sidebar Widget Area 2. If your want to display more widget - uncoment this
-    //  RU: Если вам нужен два и больше виджетов - раскоментируйте ниже и / или добавьте ещё, по примеру
-    /*
     register_sidebar(array(
-        'name' => __('Блок виджетов #2', 'wpeasy'),
+        'name' => __('Блок виджетов подвала #1', 'wpeasy'),
         'description' => __('Description for this widget-area...', 'wpeasy'),
         'id' => 'widgetarea2',
-        'before_widget' => '<div id="%1$s" class="widget %2$s">',
-        'after_widget' => '</div>',
+        'before_widget' => '',
+        'after_widget' => '',
         'before_title' => '<h6>',
         'after_title' => '</h6>'
     ));
-    */
+    register_sidebar(array(
+        'name' => __('Блок виджетов подвала #2', 'wpeasy'),
+        'description' => __('Description for this widget-area...', 'wpeasy'),
+        'id' => 'widgetarea3',
+        'before_widget' => '',
+        'after_widget' => '',
+        'before_title' => '<h6>',
+        'after_title' => '</h6>'
+    ));
+
 }
 
 

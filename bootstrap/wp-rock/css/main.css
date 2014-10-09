@@ -4518,8 +4518,9 @@ a {
       border-radius: 0;
       color: #fff;
       background-color: #de403f;
-      transition: all 0.5s; }
-    .header .nav .active a, .header .nav li:hover a {
+      transition: all 0.5s;
+      cursor: pointer; }
+    .header .nav .active a, .header .nav .current-menu-item a, .header .nav li:hover a {
       background-color: #428bca; }
 
 /* Supporting content content */
@@ -4546,6 +4547,11 @@ a {
 .sidebar .widget-weather {
   background-color: #fff;
   min-height: 200px; }
+
+.page-template-page-home-php .header .nav {
+  display: none; }
+.page-template-page-home-php .first-block {
+  margin-top: -82px; }
 
 /* Custom page footer */
 .footer {
