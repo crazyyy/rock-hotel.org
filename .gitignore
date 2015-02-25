@@ -4,3 +4,5 @@ node_modules
 /rock-hotel.org.sublime-workspace
 /bootstrap/wp-rock/sftp-config.json
 /node_modules
+/wordpress/wp-config.php
+/wordpress/sxd
