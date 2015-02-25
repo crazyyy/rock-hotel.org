@@ -23,11 +23,38 @@
 
 		 <aside class="five-slides">
 		 	<div class="inner">
-		 		
+		 		<?php putRevSlider("five-slides") ?>
 		 	</div>
 		 </aside>
 		 <!-- /.five-slides -->
 	
+		<aside class="features-carousell clearfix">
+
+			<div class="carousell-container">
+				<img src="<?php echo get_template_directory_uri(); ?>/img/content/caru1.jpg" alt="">
+				<h5>Горнолыжный курорт<span>Не далеко от отеля расположен горнолыжный курорт</span></h5>
+			</div>
+			<div class="carousell-container">
+				<img src="<?php echo get_template_directory_uri(); ?>/img/content/caru2.jpg" alt="">
+				<h5>Горнолыжный курорт<span>Не далеко от отеля расположен горнолыжный курорт</span></h5>
+			</div>
+			<div class="carousell-container">
+				<img src="<?php echo get_template_directory_uri(); ?>/img/content/caru3.jpg" alt="">
+				<h5>Горнолыжный курорт<span>Не далеко от отеля расположен горнолыжный курорт</span></h5>
+			</div>
+			<div class="carousell-container">
+				<img src="<?php echo get_template_directory_uri(); ?>/img/content/caru4.jpg" alt="">
+				<h5>Горнолыжный курорт<span>Не далеко от отеля расположен горнолыжный курорт</span></h5>
+			</div>
+
+		</aside>
+		<!-- /.features-carousell -->
+
+		<aside class="user-reviews">
+			<div class="inner clearfix">
+				
+			</div><!-- inner clearfix -->
+		</aside><!-- user-reviews -->
 		
 	
 	<?php if (have_posts()): while (have_posts()) : the_post(); ?>
