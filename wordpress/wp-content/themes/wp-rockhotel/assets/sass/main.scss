@@ -4,6 +4,7 @@
 $maincolor: #222222;
 $redcolor: #b01e36;
 $greycolor: #a29a9a;
+$greencolor: #57a31b;
 $trs: all 2s;
 
 * {
@@ -39,8 +40,11 @@ fieldset {
   margin: 0;
   padding: 0;
 }
-a {
+a,
+input,
+button {
   transition: $trs;
+  outline: none;
 }
 body {
   font-family: 'Open Sans', sans-serif;
@@ -89,8 +93,7 @@ img {
   position: relative;
 }
 header,
-article,
-footer {
+article {
   width: 980px;
   margin: 0 auto;
 }
@@ -371,6 +374,167 @@ header {
     }   
   }
 }
+.user-reviews {
+  height: 410px;
+}
+.home-map {
+  height: 670px;
+  .circle {
+    width: 360px;
+    height: 360px;
+    padding: 80px 20px 0 50px;
+    border-radius: 50%;
+    background-color: rgba(0, 0, 0, 0.40);
+    position: absolute;
+    left: 20px;
+    top: 60px;
+    color: #fff;
+    transition: $trs;
+    h5 {
+      font-weight: 700;
+      font-size: 20px;
+      margin: 0 0 5px;
+    }
+    p {
+      margin: 0 0 25px;
+      a{
+        color: #fff;
+        text-decoration: none;
+      }
+    }
+    &:hover {
+      background-color: rgba(0, 0, 0, 0.80);
+    }
+  }
+}
+.block-with-from {
+  height: 360px;
+  h5 {
+    text-align: center;
+    color: #292929;
+    font-size: 30px;
+    font-weight: 300;
+  }
+  form {
+    width: 320px;
+    margin: 0 auto;
+    padding: 30px 0 0;
+    text-align: center;
+    input {
+      display: inline-block;
+      width: 150px;
+      height: 40px;
+      border-radius: 4px;
+      border: 1px solid #ccd4d8;
+      outline: none;
+      background-image: url(../img/bg/ico-calendar.png);
+      background-repeat: no-repeat;
+      background-position: 5px center;
+      padding: 10px 10px 10px 50px;
+      text-align: right;
+      &:first-child {
+        margin: 0 5px 30px 0;
+      }
+      &:last-child {
+        margin: 0 5px 30px 0;
+      }
+    }
+    button {
+      background-color: $greencolor;
+      padding: 10px 35px;
+      border-radius: 16px;
+      box-shadow: 0px 1px 1px 0px rgba(0, 0, 0, 0.4);
+      font-size: 20px;
+      font-weight: 300;
+      color: #fff;
+      text-align: center;
+      border: 0;
+      &:hover {
+        box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.4);
+        background-color: darken($greencolor, 5%);
+      }
+      &:active {
+        box-shadow: 0px 8px 8px 0px rgba(0, 0, 0, 0.4);
+        background-color: darken($greencolor, 15%);
+      }
+    }
+  }
+}
+footer {
+  height: 300px;
+  padding: 55px 0 0;
+  background-color: #dbdbdb;
+  background-image: url(../img/logo.png);
+  background-repeat: no-repeat;
+  background-position: center 170px;
+  ul {
+    list-style-type: none;
+    width: 980px;
+    margin: 0 auto;
+    text-align: center;
+    li {
+      display: inline-block;
+      margin: 0 30px;
+      a {
+        text-decoration: none;
+      }
+    }
+  }
+  .footernav {
+    margin: 0 auto 50px;
+    li {
+      a {
+        color: #464646;
+      }
+      &:hover {
+        a {
+          text-decoration: underline;
+          color: #000;
+        }
+      }
+    }
+  }
+  .socials {
+    color: #4985af;
+    font-weight: 400;
+    li {
+      position: relative;
+      padding: 3px 0 3px 30px;
+      a{
+        color: #4985af;
+      }
+      &:before {
+        content: '';
+        display: block;
+        position: absolute;
+        top: 7px;
+        left: 0;
+      }
+    }
+    .soc-vk {
+      &:before {
+        @include sprite($sprite-ico-soc-vk);
+      }
+    }
+    .soc-fb {
+      padding-left: 15px;
+      &:before {
+        top: 5px;
+        @include sprite($sprite-ico-soc-fb);
+      }
+    }
+    .soc-gp {
+      padding-left: 25px;
+      &:before {
+        @include sprite($sprite-ico-soc-gp);
+      }
+    }
+  }
+}
+
+
+
+
 
 ::selection,
 ::-webkit-selection,

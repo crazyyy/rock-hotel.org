@@ -1,16 +1,24 @@
 			<!-- footer -->
 			<footer class="footer" role="contentinfo">
-				
-				<!-- copyright -->
-				<p class="copyright">
-					&copy; <?php echo date("Y"); ?> Собственность <?php bloginfo('name'); ?>. <?php _e('Powered by', 'wpeasy'); ?> 
-					<a href="//wordpress.org" title="WordPress">WordPress</a> &amp; <a href="//saitobaza.ru" title="WP Easy - быстрая тема для WordPress">WP Easy</a>.
-				</p>
-				<!-- /copyright -->
-				
+				<div class="inner">
+
+					<?php wpeFootNav(); ?>
+
+					<ul class="socials">
+						<li class="soc-vk">
+							<a href="">VKONTAKTE</a>
+						</li>
+						<li class="soc-fb">
+							<a href="">FACEBOOK</a>
+						</li>
+						<li class="soc-gp">
+							<a href="">GOOGLE+</a>
+						</li>
+					</ul><!-- socials -->
+
+				</div>
 			</footer>
 			<!-- /footer -->
-		
 		</div>
 		<!-- /wrapper -->
 

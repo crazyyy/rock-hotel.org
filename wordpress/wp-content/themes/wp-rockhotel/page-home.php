@@ -52,44 +52,39 @@
 
 		<aside class="user-reviews">
 			<div class="inner clearfix">
-				
+				<ul>
+					<li>
+						<h5>За что нас любят посетители</h5>
+						<p>Море - прямо с балкона!!! Рядом теннистные корты, катались на велосипедах. Каждый номер - под рок-группу! Классная ненапрягающая рок-музыка! Всем рекомендую! </p>
+						<p class="user-name">Iryna<span class="user-from user-from-bel">Беларусь</span></p>
+					</li>
+				</ul>
 			</div><!-- inner clearfix -->
 		</aside><!-- user-reviews -->
 		
-	
-	<?php if (have_posts()): while (have_posts()) : the_post(); ?>
-	
-		<!-- article -->
-		<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-			<h1 class="title"><?php the_title(); ?></h1>
-			<?php the_content(); ?>
-			
-			<?php comments_template( '', true ); // Remove if you don't want comments ?>
-			
-			<br class="clear">
-			
-			<?php edit_post_link(); ?>
-			
-		</article>
-		<!-- /article -->
-		
-	<?php endwhile; ?>
-	
-	<?php else: ?>
-	
-		<!-- article -->
-		<article>
-			
-			<h2 class="title"><?php _e( 'Sorry, nothing to display.', 'wpeasy' ); ?></h2>
-			
-		</article>
-		<!-- /article -->
-	
-	<?php endif; ?>
-<?php get_sidebar(); ?>	
+		<aside class="home-map">
+			<div class="inner">
+				<div class="circle">
+					<h5>Батуми, Грузия</h5>
+					<p>ул. Шериф Химшиашвили 15-А, 9 этаж<br>2 мин. от центра (автобус 10)<br>7 мин. от аэропорта (автобус 10)</p>
+					<h5>Нужна помощь?</h5>
+					<p><a href="tel:+995422200351">тел.: +995 422 20 03 51</a><br><a href="mailto:batumi.rock@gmail.com">batumi.rock@gmail.com</a></p>
+				</div><!-- circle -->
+			</div>
+		</aside>
+		<!-- /.home-map -->
+
+		<aside class="block-with-from">
+			<h5>Зачем откладывать на позже?</h5>
+			<h5>Мы ждем вас уже сейчас!</h5>
+			<form action="">
+				<input type="text" value="20.09.2015">
+				<input type="text" placeholrder="20.09.2015">
+				<button>Выбрать номер</button>
+			</form>
+		</aside>
+		<!-- /.block-with-from -->
 	</section>
 	<!-- /section -->
-	
-
 
 <?php get_footer(); ?>
