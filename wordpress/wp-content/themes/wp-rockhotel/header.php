@@ -32,6 +32,12 @@
 		<!-- header -->
 		<header class="header clearfix" role="banner">
 
+			<!-- nav -->
+			<nav class="nav" role="navigation">
+				<?php wpeHeadNav(); ?>
+			</nav>
+			<!-- /nav -->
+
 			<!-- logo -->
 			<div class="logo">
 				<?php if ( is_front_page() && is_home() ){ } else { ?>
@@ -46,11 +52,13 @@
 			</div>
 			<!-- /logo -->
 
-			<!-- nav -->
-			<nav class="nav" role="navigation">
-				<?php wpeHeadNav(); ?>
-			</nav>
-			<!-- /nav -->
+			<ul class="lang-selector">
+				<li><a href="">Rus</a></li>
+				<li><a href="">Eng</a></li>
+				<li><a href="">Geo</a></li>
+			</ul>
+			
+			<a href="tel:+380935624666" class="phone">093 56 24 666</a>
 
 		</header>
 		<!-- /header -->

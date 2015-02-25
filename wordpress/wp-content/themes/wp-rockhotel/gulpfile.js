@@ -5,7 +5,7 @@ var basePaths = {
 };
 var paths = {
     images: {
-        src: basePaths.src + 'images/**',
+        src: basePaths.src + 'img/**',
         dest: basePaths.dest + 'img/'
     },
     scripts: {
@@ -31,7 +31,7 @@ var appFiles = {
 var spriteConfig = {
     imgName: 'sprite.png',
     cssName: '_sprite.scss',
-    imgPath: paths.images.dest + 'sprite.png' // Gets put in the css
+    imgPath: '../img/sprite.png' // Gets put in the css
 };
 var     gulp        =       require('gulp'),
         gutil       =       require('gulp-util'),
@@ -128,7 +128,7 @@ gulp.task('webp', function () {
 gulp.task('sprite', function () {
     var spriteData = gulp.src(paths.sprite.src).pipe(plugins.spritesmith({
         imgName: spriteConfig.imgName,
-        cssName: spriteConfig.cssName,
+        cssName:  spriteConfig.cssName,
         imgPath: spriteConfig.imgPath,
         cssVarMap: function (sprite) {
             sprite.name = 'sprite-' + sprite.name;
@@ -174,14 +174,3 @@ gulp.task('watch', ['sprite', 'clearcache', 'css', 'style', 'scripts', 'image', 
 });
 
 gulp.task('default', ['css', 'prefixr', 'scripts', 'image', 'clearcache']);
-
-
-
-
-
-
-
-/*
- .pipe(plugins.browsersync.reload({stream:true, once:true})) 
- 
-*/

@@ -1,4 +1,11 @@
 @import 'normalize';
+@import 'sprite';
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,700italic,400,300,700&subset=latin,cyrillic-ext,cyrillic);
+$maincolor: #222222;
+$redcolor: #b01e36;
+$greycolor: #a29a9a;
+$trs: all 2s;
+
 * {
           box-sizing: border-box;
   -webkit-box-sizing: border-box;
@@ -23,6 +30,7 @@ h4,
 h5,
 h6 {
   margin: 0;
+  font-weight: 400;
 }
 p {
   margin: 0 0 18px;
@@ -31,11 +39,20 @@ fieldset {
   margin: 0;
   padding: 0;
 }
+a {
+  transition: $trs;
+}
 body {
-  font-family: Arial, 'Helvetica Neue', Helvetica, sans-serif;
-  font-size: 14px;
-  color: #444;
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  color: $maincolor;
   font-weight: 300;
+}
+.inner {
+  position: relative;
+  width: 980px;
+  margin: 0 auto;
 }
 /* clearfix */
 .clearfix {
@@ -66,19 +83,212 @@ img {
 \*------------------------------------*/
 
 /* wrapper */
-
 .wrapper {
-  max-width: 1280px;
-  width: 95%;
+  width: 100%;
   margin: 0 auto;
   position: relative;
 }
+header,
+article,
+footer {
+  width: 980px;
+  margin: 0 auto;
+}
 
+header {
+  height: 120px;
+  nav,
+  .logo,
+  .lang-selector,
+  .phone {
+    display: inline-block;
+    float: left;
+    height: 100%;
+  }
+  .logo {
+    width: 116px;
+    display: inline-block;
+    padding: 10px 0 0;
+    img {
+      width: 116px;
+      height: 100px;
+    }
+  }
+  nav {
+    width: 430px;
+    margin: 0 4px 0 0;
+    ul {
+      display: block;
+      padding: 50px 0;
+      text-align: center;
+      li {
+        display: inline-block;
+        margin: 0 10px;
+        font-size: 15px;
+        font-weight: 300;
+        a{
+          text-decoration: none;
+          color: black;
+          &:hover {
+            color: $redcolor;
+          }
+        }
+      }
+    }
+  }
+  .lang-selector {
+    width: 250px;
+    padding: 45px 0 0;
+    text-align: center;
+    position: relative;
+    li {
+      display: none;
+      width: 100px;
+      height: 40px;
+      text-align: center;
+      margin: 0 auto;
+      border: 1px solid $greycolor;
+      position: relative;
+      z-index: 50;
+      list-style: none;
+      a{
+        display: block;
+        padding: 10px 0;
+        width: 100%;
+        height: 100%;
+        text-decoration: none;
+        color: black;
+      }
+      &:before {
+        content: '';
+        display: block;
+        position: absolute;
+        top: 10px;
+        left: 10px;
+        @include sprite($sprite-ico-lang-rus);
+      }
+      &:first-child {
+        display: block;
+        border: 1px solid transparent;
+        &:after {
+          content: '';
+          display: block;
+          position: absolute;
+          top: 18px;
+          right: 10px;
+          @include sprite($sprite-ico-arrow-bottom);
+        }
+      }
+      &:nth-child(2) {
+        border-top: 1px solid transparent;
+        border-bottom: 1px solid transparent;
+        margin-top: -2px;
+        &:before {
+          @include sprite($sprite-ico-lang-eng);
+        }
+      }
+      &:last-child {
+        border-top: 1px solid transparent;
+        margin-top: -2px;
+        &:before {
+          @include sprite($sprite-ico-lang-geo);
+        }
+      }
 
-
-
-
-
+    }
+    &:hover {
+      li {
+       display: block;
+       &:first-child {
+          border: 1px solid $greycolor;
+          border-bottom: 1px solid transparent;
+           &:after {
+            @include sprite($sprite-ico-arrow-top);
+          }     
+        }
+      }       
+    }
+  }
+  .phone {
+    width: 180px;
+    padding: 50px 0 0 20px;
+    color: black;
+    text-align: left;
+    text-decoration: none;
+    font-size: 21px;
+    color: #333333;
+    position: relative;
+    &:before {
+      display: block;
+      content: '';
+      @include sprite($sprite-ico-phone);
+      position: absolute;
+      top: 55px;
+      left: 0;
+    }
+    &:after {
+      content: 'звоните круглосуточно';
+      color: $greycolor;
+      position: absolute;
+      left: 22px;
+      top: 70px;
+      font-size: 12px;
+      font-weight: 300;
+    }
+  }
+}
+.home-slider {
+  width: 100%;
+  height: 610px;
+  overflow: hidden;
+  .go-bottom {
+    height: 1px;
+    width: 980px;
+    margin: -1px auto 0;
+    position: relative;
+    a{
+      display: block;
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      position: absolute;
+      left: 468px;
+      bottom: 155px;
+      background-color: black;
+      z-index: 100;
+      &:after {
+        display: block;
+        content: '';
+        @include sprite($sprite-ico-arrow-bottom-big);
+        position: absolute;
+        top: 15px;
+        left: 12px;
+        transition: all 1s;
+      }
+      &:hover {
+        &:after {
+          top: 25px;
+        }
+      }
+    }
+  }
+}
+.select-rooms {
+  background-color: $redcolor;
+  height: 90px;
+  padding: 25px 0;
+  form {
+    width: 980px;
+    margin: 0 auto;
+  }
+}
+.five-slides {
+  height: 870px;
+  background-image: url(../img/bg/five-slides.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
 
 
 
