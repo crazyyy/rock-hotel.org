@@ -13,20 +13,16 @@
 		<!-- /post thumbnail -->
 		
 		<!-- post title -->
-		<h2 class="looper-title inner-title">
+		<h2 class="looper-title">
 			<a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>"><?php the_title(); ?></a>
 		</h2>
 		<!-- /post title -->
 		
 		<!-- post details -->
-		<span class="date"><?php the_time('j F Y'); ?> <span><?php the_time('G:i'); ?></span></span>
-		<span class="author"><?php _e( 'Published by', 'wpeasy' ); ?> <?php the_author_posts_link(); ?></span>
-		<span class="comments"><?php comments_popup_link( __( 'Leave your thoughts', 'wpeasy' ), __( '1 Comment', 'wpeasy' ), __( '% Comments', 'wpeasy' )); ?></span>
+		<span class="date"><?php the_time('j F Y'); ?></span>
 		<!-- /post details -->
-		
-		<?php wpeExcerpt('wpeExcerpt40'); ?>
-		
-		<?php edit_post_link(); ?>
+	
+		<?php wpeExcerpt('wpeExcerpt20'); ?>
 		
 	</article>
 	<!-- /article -->

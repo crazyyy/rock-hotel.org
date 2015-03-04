@@ -128,7 +128,7 @@ gulp.task('webp', function () {
 gulp.task('sprite', function () {
     var spriteData = gulp.src(paths.sprite.src).pipe(plugins.spritesmith({
         imgName: spriteConfig.imgName,
-        cssName:  spriteConfig.cssName,
+        cssName: spriteConfig.cssName,
         imgPath: spriteConfig.imgPath,
         cssVarMap: function (sprite) {
             sprite.name = 'sprite-' + sprite.name;

@@ -4,6 +4,14 @@
 		"selected_items":
 		[
 			[
+				"list",
+				"list-style-type"
+			],
+			[
+				"bgz",
+				"bgsz-ct	background-size: contain;"
+			],
+			[
 				"ff",
 				"ff-a	font-family: Arial, \"Helvetica Neue\", Helvetica, sans-serif;"
 			],
@@ -120,26 +128,53 @@
 	"buffers":
 	[
 		{
+			"contents": "@import 'normalize';\n@import 'sprite';\n@import url(http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,700italic,400,300,700&subset=latin,cyrillic-ext,cyrillic);\n$maincolor: #222222;\n$redcolor: #b01e36;\n$greycolor: #a29a9a;\n$greencolor: #57a31b;\n$trs: all 2s;\n\n* {\n          box-sizing: border-box;\n  -webkit-box-sizing: border-box;\n     -moz-box-sizing: border-box;\n  -webkit-font-smoothing: antialiased;\n          font-smoothing: antialiased;\n  text-rendering: optimizeLegibility;\n  &:after,\n  &:before {\n            box-sizing: border-box;\n    -webkit-box-sizing: border-box;\n       -moz-box-sizing: border-box;\n    -webkit-font-smoothing: antialiased;\n            font-smoothing: antialiased;\n    text-rendering: optimizeLegibility;\n  }\n}\nh1,\nh2,\nh3,\nh4,\nh5,\nh6 {\n  margin: 0;\n  font-weight: 400;\n}\np {\n  margin: 0 0 18px;\n}\nfieldset {\n  margin: 0;\n  padding: 0;\n}\na,\ninput,\nbutton {\n  transition: $trs;\n  outline: none;\n}\nbody {\n  font-family: 'Open Sans', sans-serif;\n  font-weight: 400;\n  font-size: 16px;\n  color: $maincolor;\n  font-weight: 300;\n}\n.inner {\n  position: relative;\n  width: 980px;\n  margin: 0 auto;\n}\n/* clearfix */\n.clearfix {\n  &:before {\n    display: table;\n    content: '';\n  }\n  &:after {\n    display: table;\n    content: '';\n    clear: both;\n  }\n}\n.clear {\n  clear: both;\n}\n.clearfix {\n  *zoom: 1;\n}\n\nimg {\n  max-width: 100%;\n  vertical-align: bottom;\n}\n\n/*------------------------------------*\\\n    STRUCTURE\n\\*------------------------------------*/\n\n/* wrapper */\n.wrapper {\n  width: 100%;\n  margin: 0 auto;\n  position: relative;\n}\nheader,\narticle {\n  width: 980px;\n  margin: 0 auto;\n}\n\nheader {\n  height: 120px;\n  nav,\n  .logo,\n  .lang-selector,\n  .phone {\n    display: inline-block;\n    float: left;\n    height: 100%;\n  }\n  .logo {\n    width: 116px;\n    display: inline-block;\n    padding: 10px 0 0;\n    img {\n      width: 116px;\n      height: 100px;\n    }\n  }\n  nav {\n    width: 430px;\n    margin: 0 4px 0 0;\n    ul {\n      display: block;\n      padding: 50px 0;\n      text-align: center;\n      li {\n        display: inline-block;\n        margin: 0 10px;\n        font-size: 15px;\n        font-weight: 300;\n        a{\n          text-decoration: none;\n          color: black;\n          &:hover {\n            color: $redcolor;\n          }\n        }\n      }\n    }\n  }\n  .lang-selector {\n    width: 250px;\n    padding: 45px 0 0;\n    text-align: center;\n    position: relative;\n    li {\n      display: none;\n      width: 100px;\n      height: 40px;\n      text-align: center;\n      margin: 0 auto;\n      border: 1px solid $greycolor;\n      position: relative;\n      z-index: 50;\n      list-style: none;\n      a{\n        display: block;\n        padding: 10px 0;\n        width: 100%;\n        height: 100%;\n        text-decoration: none;\n        color: black;\n      }\n      &:before {\n        content: '';\n        display: block;\n        position: absolute;\n        top: 10px;\n        left: 10px;\n        @include sprite($sprite-ico-lang-rus);\n      }\n      &:first-child {\n        display: block;\n        border: 1px solid transparent;\n        &:after {\n          content: '';\n          display: block;\n          position: absolute;\n          top: 18px;\n          right: 10px;\n          @include sprite($sprite-ico-arrow-bottom);\n        }\n      }\n      &:nth-child(2) {\n        border-top: 1px solid transparent;\n        border-bottom: 1px solid transparent;\n        margin-top: -2px;\n        &:before {\n          @include sprite($sprite-ico-lang-eng);\n        }\n      }\n      &:last-child {\n        border-top: 1px solid transparent;\n        margin-top: -2px;\n        &:before {\n          @include sprite($sprite-ico-lang-geo);\n        }\n      }\n\n    }\n    &:hover {\n      li {\n       display: block;\n       &:first-child {\n          border: 1px solid $greycolor;\n          border-bottom: 1px solid transparent;\n           &:after {\n            @include sprite($sprite-ico-arrow-top);\n          }     \n        }\n      }       \n    }\n  }\n  .phone {\n    width: 180px;\n    padding: 50px 0 0 20px;\n    color: black;\n    text-align: left;\n    text-decoration: none;\n    font-size: 21px;\n    color: #333333;\n    position: relative;\n    &:before {\n      display: block;\n      content: '';\n      @include sprite($sprite-ico-phone);\n      position: absolute;\n      top: 55px;\n      left: 0;\n    }\n    &:after {\n      content: 'звоните круглосуточно';\n      color: $greycolor;\n      position: absolute;\n      left: 22px;\n      top: 70px;\n      font-size: 12px;\n      font-weight: 300;\n    }\n  }\n}\n.home-slider {\n  width: 100%;\n  height: 610px;\n  overflow: hidden;\n  .forcefullwidth_wrapper_tp_banner {\n    height: 610px !important;\n  }\n  .go-bottom {\n    height: 1px;\n    width: 980px;\n    margin: -1px auto 0;\n    position: relative;\n    a{\n      display: block;\n      width: 44px;\n      height: 44px;\n      border-radius: 50%;\n      position: absolute;\n      left: 468px;\n      bottom: 155px;\n      background-color: black;\n      z-index: 100;\n      &:after {\n        display: block;\n        content: '';\n        @include sprite($sprite-ico-arrow-bottom-big);\n        position: absolute;\n        top: 15px;\n        left: 12px;\n        transition: all 1s;\n      }\n      &:hover {\n        &:after {\n          top: 25px;\n        }\n      }\n    }\n  }\n}\n.select-rooms {\n  background-color: $redcolor;\n  height: 90px;\n  padding: 25px 0;\n  form {\n    width: 980px;\n    margin: 0 auto;\n  }\n}\n.five-slides {\n  height: 870px;\n  background-image: url(../img/bg/five-slides.jpg);\n  background-position: center;\n  background-repeat: no-repeat;\n  background-size: cover;\n}\n.features-carousell {\n  width: 100%;\n  height: 390px;\n  min-width: 980px;\n  &:hover {\n    h5 {\n      background-color: lighten(#6f7f4d, 15%) !important;\n    } \n  }\n\n  .carousell-container {\n    width: 25%;\n    height: 100%;\n    min-width: 245px;\n    display: inline-block;\n    float: left;\n    border: 0;\n    position: relative;\n    overflow: hidden;\n    img {\n      width: 100%;\n      height: 290px;\n      position: absolute;\n      top: 0;\n      left: 0;\n      z-index: 0;\n    }\n    h5 {\n      position: relative;\n      color: #fff;\n      padding: 40px 25px 200px;\n      margin: 0 0 30px;\n      width: 100%;\n      background-color: #6f7f4d;\n      border-top: 9px solid #ff882b;\n      position: absolute;\n      left: 0;\n      top: 290px;\n      z-index: 5;\n      transition: $trs;\n      font-size: 20px;\n      font-weight: 400;\n      span {\n        padding-top: 30px;\n        display: block;\n        font-size: 16px;\n        font-weight: 300;\n      }\n    }\n    &:nth-child(2) {\n      h5 {\n        border-color: #0db8e7;\n      }\n    }\n    &:nth-child(3) {\n      h5 {\n        border-color: #ad8fe7;\n      }\n    }\n    &:nth-child(4) {\n      h5 {\n        border-color: #b1bddf;\n      }\n    } \n    &:nth-child(odd) {\n      h5 {\n        background-color: lighten(#6f7f4d, 15%);\n      }\n    } \n    &:hover {\n      h5 {\n        top: 170px;\n        color: #fff;\n        text-shadow:2px 2px 2px #333333;\n        background-color: darken(#6f7f4d, 5%) !important;\n      }\n    }   \n  }\n}\n.user-reviews {\n  height: 410px;\n}\n.home-map {\n  height: 670px;\n  .circle {\n    width: 360px;\n    height: 360px;\n    padding: 80px 20px 0 50px;\n    border-radius: 50%;\n    background-color: rgba(0, 0, 0, 0.40);\n    position: absolute;\n    left: 20px;\n    top: 60px;\n    color: #fff;\n    transition: $trs;\n    h5 {\n      font-weight: 700;\n      font-size: 20px;\n      margin: 0 0 5px;\n    }\n    p {\n      margin: 0 0 25px;\n      a{\n        color: #fff;\n        text-decoration: none;\n      }\n    }\n    &:hover {\n      background-color: rgba(0, 0, 0, 0.80);\n    }\n  }\n}\n.block-with-from {\n  height: 360px;\n  h5 {\n    text-align: center;\n    color: #292929;\n    font-size: 30px;\n    font-weight: 300;\n  }\n  form {\n    width: 320px;\n    margin: 0 auto;\n    padding: 30px 0 0;\n    text-align: center;\n    input {\n      display: inline-block;\n      width: 150px;\n      height: 40px;\n      border-radius: 4px;\n      border: 1px solid #ccd4d8;\n      outline: none;\n      background-image: url(../img/bg/ico-calendar.png);\n      background-repeat: no-repeat;\n      background-position: 5px center;\n      padding: 10px 10px 10px 50px;\n      text-align: right;\n      &:first-child {\n        margin: 0 5px 30px 0;\n      }\n      &:last-child {\n        margin: 0 5px 30px 0;\n      }\n    }\n    button {\n      background-color: $greencolor;\n      padding: 10px 35px;\n      border-radius: 16px;\n      box-shadow: 0px 1px 1px 0px rgba(0, 0, 0, 0.4);\n      font-size: 20px;\n      font-weight: 300;\n      color: #fff;\n      text-align: center;\n      border: 0;\n      &:hover {\n        box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.4);\n        background-color: darken($greencolor, 5%);\n      }\n      &:active {\n        box-shadow: 0px 8px 8px 0px rgba(0, 0, 0, 0.4);\n        background-color: darken($greencolor, 15%);\n      }\n    }\n  }\n}\nfooter {\n  height: 300px;\n  padding: 55px 0 0;\n  background-color: #dbdbdb;\n  background-image: url(../img/logo.png);\n  background-repeat: no-repeat;\n  background-position: center 170px;\n  ul {\n    list-style-type: none;\n    width: 980px;\n    margin: 0 auto;\n    text-align: center;\n    li {\n      display: inline-block;\n      margin: 0 30px;\n      a {\n        text-decoration: none;\n      }\n    }\n  }\n  .footernav {\n    margin: 0 auto 50px;\n    li {\n      a {\n        color: #464646;\n      }\n      &:hover {\n        a {\n          text-decoration: underline;\n          color: #000;\n        }\n      }\n    }\n  }\n  .socials {\n    color: #4985af;\n    font-weight: 400;\n    li {\n      position: relative;\n      padding: 3px 0 3px 30px;\n      a{\n        color: #4985af;\n      }\n      &:before {\n        content: '';\n        display: block;\n        position: absolute;\n        top: 7px;\n        left: 0;\n      }\n    }\n    .soc-vk {\n      &:before {\n        @include sprite($sprite-ico-soc-vk);\n      }\n    }\n    .soc-fb {\n      padding-left: 15px;\n      &:before {\n        top: 5px;\n        @include sprite($sprite-ico-soc-fb);\n      }\n    }\n    .soc-gp {\n      padding-left: 25px;\n      &:before {\n        @include sprite($sprite-ico-soc-gp);\n      }\n    }\n  }\n}\n\n\n\n\n::selection,\n::-webkit-selection,\n::-moz-selection {\n  background: #04a4cc;\n  color: #fff;\n  text-shadow: none;\n}\n/*------------------------------------*\\\n    WORDPRESS CORE\n\\*------------------------------------*/\n.alignnone {\n  margin: 5px;\n}\n.aligncenter,\ndiv.aligncenter {\n  display: block;\n  margin: 5px auto;\n}\n.alignright {\n  float: right;\n  margin: 5px 0 20px 20px;\n}\n.alignleft {\n  float: left;\n  margin: 5px 20px 20px 0;\n}\n.wp-caption {\n  background: #fff;\n  border: 1px solid #f0f0f0;\n  max-width: 96%;\n  padding: 5px 3px 10px;\n  text-align: center;\n  img {\n    border: 0 none;\n    height: auto;\n    margin: 0;\n    max-width: 98.5%;\n    padding: 0;\n    width: auto;\n  }\n  .wp-caption-text {\n    font-size: 80%;\n    line-height: 17px;\n    margin: 0;\n    padding: 0 4px 5px;\n  }\n}\n.gallery-caption {\n  font-size: 80%;\n  line-height: 17px;\n  margin: 0;\n  padding: 0 4px 5px;\n}\n\n/*------------------------------------*\\\n    PRINT\n\\*------------------------------------*/\n@media print {\n  * {\n    background: transparent !important;\n    color: #000 !important;\n    box-shadow: none !important;\n    text-shadow: none !important;\n  }\n  a {\n    text-decoration: underline;\n    &:visited {\n      text-decoration: underline;\n    }\n    &[href]:after {\n      content: ' (' attr(href) ')';\n    }\n  }\n  abbr[title]:after {\n    content: ' (' attr(title) ')';\n  }\n  .ir a:after {\n    content: '';\n  }\n  a {\n    &[href^='javascript:']:after,\n    &[href^='#']:after {\n      content: '';\n    }\n  }\n  pre,\n  blockquote {\n    border: 1px solid #999;\n    page-break-inside: avoid;\n  }\n  thead {\n    display: table-header-group;\n  }\n  tr {\n    page-break-inside: avoid;\n  }\n  img {\n    page-break-inside: avoid;\n    max-width: 100% !important;\n  }\n  @page {\n    margin: .5cm;\n  }\n  p,\n  h2,\n  h3 {\n    orphans: 3;\n    widows: 3;\n  }\n  h2,\n  h3 {\n    page-break-after: avoid;\n  }\n}\n",
+			"file": "wordpress/wp-content/themes/wp-rockhotel/assets/sass/main.scss",
+			"file_size": 12686,
+			"file_write_time": 130698035928217893,
+			"settings":
+			{
+				"buffer_size": 12013,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "wordpress/wp-content/themes/wp-rockhotel/gulpfile.js",
+			"settings":
+			{
+				"buffer_size": 5507,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "wordpress/wp-content/themes/wp-rockhotel/footer.php",
+			"settings":
+			{
+				"buffer_size": 827,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "wordpress/wp-content/themes/wp-rockhotel/assets/sass/_sprite.scss",
+			"settings":
+			{
+				"buffer_size": 6838,
+				"line_ending": "Unix"
+			}
+		},
+		{
 			"file": "wordpress/wp-content/themes/wp-rockhotel/header.php",
 			"settings":
 			{
-				"buffer_size": 1697,
+				"buffer_size": 1900,
 				"line_ending": "Windows"
 			}
 		},
 		{
-			"file": "wordpress/wp-content/themes/wp-rockhotel/style.css",
+			"file": "wordpress/wp-content/themes/wp-rockhotel/page-home.php",
 			"settings":
 			{
-				"buffer_size": 642,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "wordpress/wp-content/themes/wp-rockhotel/assets/sass/main.scss",
-			"settings":
-			{
-				"buffer_size": 3073,
+				"buffer_size": 2925,
 				"line_ending": "Windows"
 			}
 		}
@@ -405,11 +440,20 @@
 	},
 	"expanded_folders":
 	[
-		"/D/Working/develop/verstka/rock-hotel.org"
+		"/D/Working/develop/verstka/rock-hotel.org",
+		"/D/Working/develop/verstka/rock-hotel.org/wordpress",
+		"/D/Working/develop/verstka/rock-hotel.org/wordpress/wp-content",
+		"/D/Working/develop/verstka/rock-hotel.org/wordpress/wp-content/themes",
+		"/D/Working/develop/verstka/rock-hotel.org/wordpress/wp-content/themes/wp-rockhotel",
+		"/D/Working/develop/verstka/rock-hotel.org/wordpress/wp-content/themes/wp-rockhotel/assets",
+		"/D/Working/develop/verstka/rock-hotel.org/wordpress/wp-content/themes/wp-rockhotel/assets/sass"
 	],
 	"file_history":
 	[
+		"/D/Working/develop/verstka/rock-hotel.org/wordpress/wp-content/themes/wp-rockhotel/gulpfile.js",
+		"/D/Working/develop/verstka/rock-hotel.org/wordpress/wp-content/themes/wp-rockhotel/assets/sass/_web-fonts.scss",
 		"/D/Working/develop/verstka/rock-hotel.org/wordpress/wp-content/themes/wp-rockhotel/index.php",
+		"/D/Working/develop/verstka/rock-hotel.org/wordpress/wp-content/themes/wp-rockhotel/style.css",
 		"/D/Working/develop/verstka/takoconsult.ru/wp-takoconsult/loop.php",
 		"/D/Working/develop/verstka/takoconsult.ru/wp-takoconsult/style.css",
 		"/D/Working/develop/verstka/takoconsult.ru/wp-takoconsult/css/main.css",
@@ -533,10 +577,7 @@
 		"//H24-PROG-VERST/Work/hotels24.ua/www/js/pack/jsClasses.js",
 		"/Z/hotels24.ua/application/log/apiService.log",
 		"/Z/hotels24.ua/application/templates_c/cache/jsClasses.jscache",
-		"//H24-PROG-VERST/Work/hotels24.ua/gulpfile.js",
-		"/Z/hotels24.ua/www/css/index.css",
-		"//H24-PROG-VERST/Work/hotels24.ua/package.json",
-		"/D/Working/userprofile/AppData/Roaming/AIMP3/PLS/Default (2).aimppl"
+		"//H24-PROG-VERST/Work/hotels24.ua/gulpfile.js"
 	],
 	"find":
 	{
@@ -554,6 +595,12 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"live",
+			"footer",
+			"dbdbdb",
+			"button",
+			"292929",
+			"z-inde",
 			"заяв",
 			"зая",
 			"#right_head",
@@ -675,13 +722,7 @@
 			"font-family: Arial, 'Helvetica Neue', Helvetica, sans-serif;",
 			"font-family",
 			"row-",
-			"font-",
-			"phone_and_link_2",
-			"RoomsBlockActive",
-			"banner_button",
-			"nomera",
-			"banner_button",
-			"layout-middle_sidebar_right"
+			"font-"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -789,16 +830,111 @@
 	"groups":
 	[
 		{
-			"selected": 2,
+			"selected": 0,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "wordpress/wp-content/themes/wp-rockhotel/header.php",
+					"file": "wordpress/wp-content/themes/wp-rockhotel/assets/sass/main.scss",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1697,
+						"buffer_size": 12013,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								10141,
+								10141
+							]
+						],
+						"settings":
+						{
+							"BracketHighlighterBusy": false,
+							"apply_syntax_touched": true,
+							"bh_regions":
+							[
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content"
+							],
+							"color_scheme": "Packages/User/Color Highlighter/themes/Seti_monokai (SL).tmTheme",
+							"incomplete_sync": null,
+							"remote_loading": false,
+							"side_bar_folders_auto_load_folder": 1,
+							"synced": false,
+							"syntax": "Packages/SCSS/SCSS.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 12373.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "wordpress/wp-content/themes/wp-rockhotel/gulpfile.js",
+					"semi_transient": true,
+					"settings":
+					{
+						"buffer_size": 5507,
 						"regions":
 						{
 						},
@@ -813,6 +949,102 @@
 						{
 							"BracketHighlighterBusy": false,
 							"apply_syntax_touched": true,
+							"bh_regions":
+							[
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content"
+							],
+							"color_scheme": "Packages/User/Color Highlighter/themes/Seti_monokai (SL).tmTheme",
+							"incomplete_sync": null,
+							"remote_loading": false,
+							"side_bar_folders_auto_load_folder": 1,
+							"synced": false,
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 3616.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "wordpress/wp-content/themes/wp-rockhotel/footer.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 827,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								238,
+								232
+							]
+						],
+						"settings":
+						{
+							"BracketHighlighterBusy": false,
+							"apply_syntax_touched": true,
+							"auto_complete": false,
 							"bh_regions":
 							[
 								"bh_round",
@@ -887,113 +1119,20 @@
 					"type": "text"
 				},
 				{
-					"buffer": 1,
-					"file": "wordpress/wp-content/themes/wp-rockhotel/style.css",
+					"buffer": 3,
+					"file": "wordpress/wp-content/themes/wp-rockhotel/assets/sass/_sprite.scss",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 642,
+						"buffer_size": 6838,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								0,
-								0
-							]
-						],
-						"settings":
-						{
-							"BracketHighlighterBusy": false,
-							"apply_syntax_touched": true,
-							"bh_regions":
-							[
-								"bh_round",
-								"bh_round_center",
-								"bh_round_open",
-								"bh_round_close",
-								"bh_round_content",
-								"bh_default",
-								"bh_default_center",
-								"bh_default_open",
-								"bh_default_close",
-								"bh_default_content",
-								"bh_double_quote",
-								"bh_double_quote_center",
-								"bh_double_quote_open",
-								"bh_double_quote_close",
-								"bh_double_quote_content",
-								"bh_single_quote",
-								"bh_single_quote_center",
-								"bh_single_quote_open",
-								"bh_single_quote_close",
-								"bh_single_quote_content",
-								"bh_angle",
-								"bh_angle_center",
-								"bh_angle_open",
-								"bh_angle_close",
-								"bh_angle_content",
-								"bh_regex",
-								"bh_regex_center",
-								"bh_regex_open",
-								"bh_regex_close",
-								"bh_regex_content",
-								"bh_c_define",
-								"bh_c_define_center",
-								"bh_c_define_open",
-								"bh_c_define_close",
-								"bh_c_define_content",
-								"bh_unmatched",
-								"bh_unmatched_center",
-								"bh_unmatched_open",
-								"bh_unmatched_close",
-								"bh_unmatched_content",
-								"bh_tag",
-								"bh_tag_center",
-								"bh_tag_open",
-								"bh_tag_close",
-								"bh_tag_content",
-								"bh_curly",
-								"bh_curly_center",
-								"bh_curly_open",
-								"bh_curly_close",
-								"bh_curly_content",
-								"bh_square",
-								"bh_square_center",
-								"bh_square_open",
-								"bh_square_close",
-								"bh_square_content"
-							],
-							"color_scheme": "Packages/User/Color Highlighter/themes/Seti_monokai (SL).tmTheme",
-							"incomplete_sync": null,
-							"remote_loading": false,
-							"side_bar_folders_auto_load_folder": 1,
-							"synced": false,
-							"syntax": "Packages/CSS/CSS.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 1,
-					"type": "text"
-				},
-				{
-					"buffer": 2,
-					"file": "wordpress/wp-content/themes/wp-rockhotel/assets/sass/main.scss",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 3073,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								126,
-								126
+								4002,
+								3992
 							]
 						],
 						"settings":
@@ -1068,10 +1207,200 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 2361.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 0,
+					"stack_index": 3,
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "wordpress/wp-content/themes/wp-rockhotel/header.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1900,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1111,
+								1089
+							]
+						],
+						"settings":
+						{
+							"BracketHighlighterBusy": false,
+							"apply_syntax_touched": true,
+							"auto_complete": false,
+							"bh_regions":
+							[
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content"
+							],
+							"color_scheme": "Packages/User/Color Highlighter/themes/Seti_monokai (SL).tmTheme",
+							"incomplete_sync": null,
+							"remote_loading": false,
+							"side_bar_folders_auto_load_folder": 1,
+							"synced": false,
+							"syntax": "Packages/PHP/PHP.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 960.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 5,
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "wordpress/wp-content/themes/wp-rockhotel/page-home.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2925,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2708,
+								2709
+							]
+						],
+						"settings":
+						{
+							"BracketHighlighterBusy": false,
+							"apply_syntax_touched": true,
+							"auto_complete": false,
+							"bh_regions":
+							[
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content"
+							],
+							"color_scheme": "Packages/User/Color Highlighter/themes/Seti_monokai (SL).tmTheme",
+							"incomplete_sync": null,
+							"remote_loading": false,
+							"side_bar_folders_auto_load_folder": 1,
+							"synced": false,
+							"syntax": "Packages/PHP/PHP.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 2280.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 4,
 					"type": "text"
 				}
 			]
@@ -1149,7 +1478,7 @@
 		[
 			[
 				"",
-				"D:\\Working\\develop\\verstka\\drmichaels\\drmichaels.sublime-project"
+				"D:\\Working\\develop\\verstka\\hotels24-blog\\hotels24-blog.sublime-project"
 			]
 		],
 		"width": 380.0
@@ -1170,7 +1499,7 @@
 	"show_open_files": true,
 	"show_tabs": true,
 	"side_bar_visible": true,
-	"side_bar_width": 250.0,
+	"side_bar_width": 229.0,
 	"status_bar_visible": true,
 	"template_settings":
 	{

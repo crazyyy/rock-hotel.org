@@ -12,14 +12,7 @@
 		</aside>
 		 <!-- /.home-slider --> 
 
-		 <aside class="select-rooms">
-		 	<form action="">
-		 		<input type="text">
-		 		<input type="text">
-		 		<button></button>
-		 	</form>
-		 </aside>
-		 <!-- /.select-rooms -->
+		<?php get_template_part('select-rooms'); ?>
 
 		 <aside class="five-slides">
 		 	<div class="inner">
