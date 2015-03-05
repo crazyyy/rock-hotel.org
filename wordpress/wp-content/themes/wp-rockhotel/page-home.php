@@ -43,17 +43,8 @@
 		</aside>
 		<!-- /.features-carousell -->
 		<?php get_template_part('user-reviews'); ?>
-		<aside class="home-map">
-			<div class="inner">
-				<div class="circle">
-					<h5>Батуми, Грузия</h5>
-					<p>ул. Шериф Химшиашвили 15-А, 9 этаж<br>2 мин. от центра (автобус 10)<br>7 мин. от аэропорта (автобус 10)</p>
-					<h5>Нужна помощь?</h5>
-					<p><a href="tel:+995422200351">тел.: +995 422 20 03 51</a><br><a href="mailto:batumi.rock@gmail.com">batumi.rock@gmail.com</a></p>
-				</div><!-- circle -->
-			</div>
-		</aside>
-		<!-- /.home-map -->
+		
+		<!-- <?php get_template_part('home-map'); ?> -->
 
 		<aside class="block-with-from">
 			<h5>Зачем откладывать на позже?</h5>

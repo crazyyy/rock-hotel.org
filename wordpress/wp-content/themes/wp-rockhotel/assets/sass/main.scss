@@ -1,5 +1,6 @@
 @import 'normalize';
 @import 'sprite';
+@import 'owl.carousel';
 @import url(http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,700italic,400,300,700&subset=latin,cyrillic-ext,cyrillic);
 $maincolor: #222222;
 $redcolor: #b01e36;
@@ -379,6 +380,18 @@ header {
 }
 .home-map {
   height: 670px;
+  position: relative;
+  .acf-map {
+    width: 100%;
+    height: 670px;
+    border: 0;
+    margin: 0;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+  }
   .circle {
     width: 360px;
     height: 360px;
@@ -388,6 +401,7 @@ header {
     position: absolute;
     left: 20px;
     top: 60px;
+    z-index: 50;
     color: #fff;
     transition: $trs;
     h5 {
