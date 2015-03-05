@@ -797,4 +797,52 @@ function top_level_cats_remove_cat_base($link)
 	return preg_replace('|' . $category_base . '|', '', $link, 1);
 }
 
+add_action( 'init', 'register_cpt_reviews' );
+
+function register_cpt_reviews() {
+
+    $labels = array( 
+        'name' => _x( 'Reviews', 'reviews' ),
+        'singular_name' => _x( 'Reviews', 'reviews' ),
+        'add_new' => _x( 'Add New', 'reviews' ),
+        'add_new_item' => _x( 'Add New Reviews', 'reviews' ),
+        'edit_item' => _x( 'Edit Reviews', 'reviews' ),
+        'new_item' => _x( 'New Reviews', 'reviews' ),
+        'view_item' => _x( 'View Reviews', 'reviews' ),
+        'search_items' => _x( 'Search Reviews', 'reviews' ),
+        'not_found' => _x( 'No reviews found', 'reviews' ),
+        'not_found_in_trash' => _x( 'No reviews found in Trash', 'reviews' ),
+        'parent_item_colon' => _x( 'Parent Reviews:', 'reviews' ),
+        'menu_name' => _x( 'Reviews', 'reviews' ),
+    );
+
+    $args = array( 
+        'labels' => $labels,
+        'hierarchical' => true,
+        
+        'supports' => array( 'title', 'editor' ),
+        
+        'public' => true,
+        'show_ui' => true,
+        'show_in_menu' => true,
+        'menu_position' => 15,
+        
+        'show_in_nav_menus' => true,
+        'publicly_queryable' => true,
+        'exclude_from_search' => false,
+        'has_archive' => true,
+        'query_var' => true,
+        'can_export' => true,
+        'rewrite' => array( 
+            'slug' => 'reviews', 
+            'with_front' => false,
+            'feeds' => true,
+            'pages' => true
+        ),
+        'capability_type' => 'post'
+    );
+
+    register_post_type( 'reviews', $args );
+}
+
 ?>

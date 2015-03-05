@@ -43,8 +43,8 @@
 		</aside>
 		<!-- /.features-carousell -->
 		<?php get_template_part('user-reviews'); ?>
-		
-		<!-- <?php get_template_part('home-map'); ?> -->
+
+		<?php get_template_part('home-map'); ?>
 
 		<aside class="block-with-from">
 			<h5>Зачем откладывать на позже?</h5>

@@ -4,7 +4,7 @@
 
 					<?php wpeFootNav(); ?>
 
-					<ul class="socials">
+					<ul class="socialsisi">
 						<li class="soc-vk">
 							<a href="">VKONTAKTE</a>
 						</li>
@@ -14,7 +14,7 @@
 						<li class="soc-gp">
 							<a href="">GOOGLE+</a>
 						</li>
-					</ul><!-- socials -->
+					</ul><!-- socialsisi -->
 
 				</div>
 			</footer>
@@ -23,6 +23,7 @@
 		<!-- /wrapper -->
 
 		<?php wp_footer(); ?>
+		<script type='text/javascript' src='//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js?ver=1.11.0'></script>
 		<script src="<?php echo get_template_directory_uri(); ?>/js/owl.carousel.min.js"></script>
 		<script src="<?php echo get_template_directory_uri(); ?>/js/owl.new.js"></script>
 
