@@ -7,6 +7,7 @@ $redcolor: #b01e36;
 $greycolor: #a29a9a;
 $greencolor: #57a31b;
 $trs: all 2s;
+$bdrs: 5px;
 
 * {
           box-sizing: border-box;
@@ -47,6 +48,19 @@ input,
 button {
   transition: $trs;
   outline: none;
+}
+input,
+textarea {
+  border: 1px solid #ccd4d8;
+  border-radius: $bdrs;
+  padding: 13px;
+  font-size: 16px;
+  color: #929191;
+  &:hover,
+  &:focus,
+  &:active {
+    border-color: darken(#ccd4d8, 25%);
+  }
 }
 body {
   font-family: 'Open Sans', sans-serif;
@@ -288,6 +302,33 @@ header {
   form {
     width: 980px;
     margin: 0 auto;
+    text-align: center;
+    input,
+    button {
+      display: inline-block;
+      border: 0;
+      height: 35px;
+      font-size: 20px;
+      margin: 0 10px;
+    }
+    input {
+      padding: 15px 10px 15px 40px;
+      width: 150px;
+      color: #000;
+      background-image: url(../img/bg/ico-calendar.png);
+      background-repeat: no-repeat;
+      font-weight: 300;
+      background-position: 5px center;
+    }
+    button {
+      color: #ffffff;
+      font-size: 20px;
+      width: 340px;
+      text-align: center;
+      background-color: #57a31b;
+      border-radius: $bdrs;
+      box-shadow: 0px 5px 5px 0px rgba(0, 0, 0, 0.31);
+    }
   }
 }
 .five-slides {
@@ -443,7 +484,7 @@ header {
       width: 58px;
       height: 58px;
       border: 5px solid #e0e3ec;
-      border-radius: 50px;
+      border-radius: 50%;
       font-weight: bold;
       text-align: center;
       font-size: 35px;
@@ -527,7 +568,7 @@ header {
       display: inline-block;
       width: 150px;
       height: 40px;
-      border-radius: 4px;
+      border-radius: $bdrs;
       border: 1px solid #ccd4d8;
       outline: none;
       background-image: url(../img/bg/ico-calendar.png);
@@ -728,21 +769,24 @@ section {
     margin: 0 2px;
   }
   ul {
-    display: block;
-    padding: 0;
-    margin: 0 0 20px;
+    display: block !important;
+    padding: 0 !important;
+    margin: 0 0 20px !important;
     height: 210px;
-    list-style-type: none;
+    list-style-type: none !important;
     li {
       display: inline-block;
       float: left;
-      width: 200px;
-      margin: 0 10px;
+      width: 200px !important;
+      margin: 0 10px !important;
+      &:before {
+        display: none;
+      }
       &:first-child {
-        margin-left: 0;
+        margin-left: 0 !important;
       }
       &:last-child {
-        margin-right: 0;
+        margin-right: 0 !important;
       }
       h4 {
         color: #333333;
@@ -833,7 +877,69 @@ footer {
     }
   }
 }
-
+.contact-page {
+  padding: 40px 0 80px;
+  .inner {
+    width: 760px;
+  }
+  .cont-container {
+    width: 325px;
+    padding: 0 25px 0 0;
+    display: inline-block;
+    float: left;
+    p {
+      margin: 0 0 8px;
+      line-height: 1;
+    }
+  }
+  .wpcf7 {
+    width: 435px;
+    display: inline-block;
+    float: left;
+    input {
+      display: inline-block;
+      height: 40px;
+    }
+    input,
+    textarea {
+      margin: 0 20px 20px 0;
+    }
+    input[type=text] {
+      width: 144px;
+    }
+    input[type=email] {
+      width: 270px;
+      margin-right: 0;
+    }
+    textarea {
+      margin-right: 0;
+      width: 434px;
+      height: 120px;
+    }
+    input[type=submit] {
+      width: 180px;
+      padding: 10px 25px 10px 55px;
+      color: #fff;
+      font-size: 20px;
+      font-weight: 300;
+      box-shadow: 0px 1px 0px 0px rgba(0, 0, 0, 0.004);
+      background-color: #00a7a4;
+      border: 0;
+      background-position: 13px center;
+      background-repeat: no-repeat;
+      background-image: url(../img/ico/ico-mail.png);
+      &:hover,
+      &:active {
+        background-color: darken(#00a7a4, 25%);
+      }
+    }
+  }
+}
+.page-template-page-contact {
+  .circle{
+    display: none;
+  }
+}
 
 
 
