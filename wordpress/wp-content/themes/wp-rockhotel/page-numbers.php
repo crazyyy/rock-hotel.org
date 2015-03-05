@@ -1,4 +1,4 @@
-<?php get_header(); ?>
+<?php /* Template Name: Numbers Page Template */ get_header(); ?>
 	
 	<!-- section -->
 	<section role="main">
@@ -9,8 +9,6 @@
 
 			<?php the_content(); ?>
 			
-			<?php comments_template( '', true ); ?>
-			
 			<?php edit_post_link(); ?>
 		<?php endwhile; else: // If 404 page error ?>
 			<h2 class="page-title inner-title"><?php _e( 'Sorry, nothing to display.', 'wpeasy' ); ?></h2>
@@ -19,5 +17,5 @@
 		<!-- /article -->
 	</section>
 	<!-- /section -->
-
+	<?php get_template_part('select-rooms'); ?>
 <?php get_footer(); ?>
