@@ -156,6 +156,7 @@ header {
     }
   }
   .lang-selector {
+    opacity: 0;
     width: 250px;
     padding: 45px 0 0;
     text-align: center;
@@ -940,9 +941,126 @@ footer {
     display: none;
   }
 }
+.page-template-page-all-numbers {
+  .mainer {
+    width: 930px;
+    margin: 0 auto;
+  }
+  .numbers-catalog {
+    display: block;
+    padding: 0;
+    margin: 0;
+    list-style-type: none;
+    li {
+      padding: 0;
+      margin: 0 0 20px;
+      height: 260px;
+      display: block;
+      width: 100%;
+      position: relative;
+      background-color: #fff;
+      &:before {
+        display: none;
+      }
+      a {
+        text-decoration: none;
+        color: #2a2a2a;
+      }
+      img {
+        border: 0;
+        width: 400px;
+        height: 100%;
+        float: left;
+        margin: 0 20px 0 0;
+      }
+      h2 {
+        font-size: 20px;
+        color: #2a2a2a;
+      }
+      .price {
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 15;
+        font-size: 25px;
+        color: #fff;
+        font-weight: 600;
+        display: block;
+        width: 75px;
+        height: 43px;
+        padding: 4px 0;
+        text-align: center;
+        background-color: #b01e36;
+      }
+      form {
+        display: block;
+        text-align: center;
+        input,
+        button {
+          width: 130px;
+          height: 40px;
+          margin: 0 5px;
+          display: inline-block;
+        }
+        input {
+          text-align: right;      
+          background-image: url(../img/bg/ico-calendar.png);
+          background-repeat: no-repeat;
+          font-weight: 300;
+          background-position: 5px center;
+        }
+        button {
+          width: 160px;
+          border: 0;
+          background-color: #57a31b;
+          color: #fff;
+          font-size: 16px;
+          font-weight: 400;
+          text-transform: uppercase;
+          border-radius: 6px;
+          box-shadow: 0px 5px 5px 0px rgba(0, 0, 0, 0.4);
+        }
+      }
+    }
+  }
+}
+.page-template-page-reviews {
+  section {
+    width: 770px;
+    margin: 0 auto;
+    background-color: transparent;
+    .lazy-selector {
+      text-align: center;
+      color: #292929;
+      font-size: 40px;
+      margin: 0 auto 16px;
+    }
+  }
+}
+.all-review-page {
+  display: block;
+  margin: 0 auto;
+  padding: 0;
+  list-style-type: none;
+  li {
+    display: block;
+    padding: 20px;
+    position: relative;
+    &:nth-child(odd){
+      background-color: #fff;
+    }
+    p {
 
-
-
+    }
+  }
+}
+.paginugets {
+  text-align: center;
+  a, span {
+    display: inline-block;
+    margin: 0 5px;
+  }
+}
 ::selection,
 ::-webkit-selection,
 ::-moz-selection {
