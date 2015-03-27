@@ -19,7 +19,6 @@
 	<?php wp_head(); ?>
 	<script>
 	!function(){
-		// configure legacy, retina, touch requirements @ conditionizr.com
 		conditionizr()
 	}()
 	</script>

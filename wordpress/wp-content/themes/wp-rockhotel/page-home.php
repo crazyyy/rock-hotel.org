@@ -2,15 +2,34 @@
 	
 	<!-- section -->
 	<section role="main">
+	<script>
+	$(function() {
+	  $('a[href*=#]:not([href=#])').click(function() {
+	    if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
 
+	      var target = $(this.hash);
+	      target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
+	      if (target.length) {
+	        $('html,body').animate({
+	          scrollTop: target.offset().top
+	        }, 1000);
+	        return false;
+	      }
+	    }
+	  });
+	});
+	</script>
 		<aside class="home-slider">
 			<?php putRevSlider("home-slider") ?>
 			<div class="go-bottom">
-				<a href="#"></a>
+				<a href="<?php echo home_url(); ?>#scroll"></a>
 			</div>
 			<!-- /.go-bottom -->
+
 		</aside>
 		 <!-- /.home-slider --> 
+
+		<div id="scroll"></div>
 
 		<?php get_template_part('select-rooms'); ?>
 
