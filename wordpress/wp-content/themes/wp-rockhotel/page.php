@@ -9,7 +9,7 @@
 
 			<?php the_content(); ?>
 			
-			<?php comments_template( '', true ); ?>
+<!-- 			<?php comments_template( '', true ); ?> -->
 
 			<?php endwhile; else: // If 404 page error ?>
 				<h2 class="page-title inner-title"><?php _e( 'Sorry, nothing to display.', 'wpeasy' ); ?></h2>

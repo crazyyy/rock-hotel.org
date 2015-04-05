@@ -14,7 +14,7 @@
 			
 			<?php get_template_part('read-also'); ?>
 
-			<?php comments_template(); ?>
+<!-- 			<?php comments_template(); ?> -->
 			
 		
 			<?php endwhile; else: ?>
