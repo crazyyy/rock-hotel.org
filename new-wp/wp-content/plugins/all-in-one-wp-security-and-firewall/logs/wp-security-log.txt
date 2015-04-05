@@ -1,6 +1,0 @@
-[04/03/2015 3:46 PM] - FAILURE : Error inserting record into jf1uih_aiowps_login_activity
-[04/03/2015 4:01 PM] - FAILURE : Error inserting record into jf1uih_aiowps_login_activity
-[04/03/2015 4:31 PM] - FAILURE : Error inserting record into jf1uih_aiowps_login_activity
-[04/04/2015 7:58 AM] - FAILURE : Error inserting record into jf1uih_aiowps_login_activity
-[04/05/2015 12:08 PM] - FAILURE : Error inserting record into jf1uih_aiowps_login_activity
-[04/05/2015 1:08 PM] - FAILURE : Error inserting record into jf1uih_aiowps_login_activity

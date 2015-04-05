@@ -7,3 +7,5 @@ node_modules
 /wordpress/wp-config.php
 /wordpress/sxd
 /.hg
+wp-config.php
+sxd
