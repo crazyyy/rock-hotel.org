@@ -8,4 +8,5 @@ node_modules
 /wordpress/sxd
 /.hg
 wp-config.php
+wp-config.php.bck
 sxd
