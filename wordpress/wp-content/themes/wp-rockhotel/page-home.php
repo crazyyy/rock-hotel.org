@@ -42,7 +42,7 @@
 
 		<?php if( have_rows('carousellcont') ): ?>
 		<aside class="features-carousell clearfix">
-		<?php while( have_rows('repeater_field_name') ): the_row(); 
+		<?php while( have_rows('carousellcont') ): the_row(); 
 
 			// vars
 			$image = get_sub_field('img');
@@ -52,7 +52,7 @@
 			?>
 			<div class="carousell-container">
 				<img src="<?php echo $image; ?>" alt="<?php echo $title; ?>">
-				<h5><?php echo $title; ?><span><?php echo $description; ?></span></h5>
+				<h5><?php echo $titles; ?><span><?php echo $content; ?></span></h5>
 			</div>
 			<?php endwhile; ?>
 
@@ -64,22 +64,25 @@
 
 		<?php get_template_part('home-map'); ?>
 
+
+
 		<aside class="block-with-from">
 			<h5>Зачем откладывать на позже?</h5>
 			<h5>Мы ждем вас уже сейчас!</h5>
-			<div id="_bn_widget_">
+			<div id="_bn_widget2_">
 			</div>
 			<script src="http://widget.bnovo.ru/js/bnovo.js"></script>
 			<script type="text/javascript">
 			  Bnovo_Widget.init(function(){
-			    Bnovo_Widget.open('_bn_widget_', {
+			    Bnovo_Widget.open('_bn_widget2_', {
 			        type: "vertical",
 			        lcode: "1396516137",
 			        lang: "ru",
 			        width: "230",
 			        background: "#F2F2F2",
-			        bg_alpha: "100",
+			        bg_alpha: "75",
 			        padding: "18",
+			        title_color: "#292929",
 			        btn_background: "#57A31B",
 			        btn_background_over: "#355C16",
 			        btn_textcolor: "#FFFFFF",

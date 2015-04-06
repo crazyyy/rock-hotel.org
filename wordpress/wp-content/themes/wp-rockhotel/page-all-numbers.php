@@ -22,21 +22,16 @@
 
 						<?php if(get_field('price', $p->ID))	{ echo '<span class="price">' . get_field('price', $p->ID) . '</span>';	} ?>
 						</a>
-					 	<form action="">
-					 		<input type="text" placeholder="20.09.2013">
-					 		<input type="text" placeholder="20.09.2013">
-					 		<button>забронировать</button>
-					 	</form>
 		            </li>
 		          <?php endforeach; ?>
 		        </ul><!-- numbers-catalog -->
 		      <?php endif; ?>
-
 		<?php endwhile; else: // If 404 page error ?>
 			<h2 class="page-title inner-title"><?php _e( 'Sorry, nothing to display.', 'wpeasy' ); ?></h2>
 		<?php endif; ?>
 		</div>
 		<!-- /article -->
+		<?php get_template_part('select-rooms'); ?>
 	</section>
 	<!-- /section -->
 <?php get_footer(); ?>

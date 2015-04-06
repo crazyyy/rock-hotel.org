@@ -68,6 +68,6 @@ $(document).ready(function(){
 			<div class="marker" data-lat="<?php echo $location['lat']; ?>" data-lng="<?php echo $location['lng']; ?>"></div>
 		</div>
 		<?php endif; ?>
-
+		<div class="circle"></div>
 </aside>
 <!-- /.home-map -->

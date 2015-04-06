@@ -92,11 +92,13 @@ body {
 .clearfix {
    *zoom: 1;
 }
-
-img {
-   max-width: 100%;
-   vertical-align: bottom;
+.hentry {
+   img {
+      max-width: 100%;
+      vertical-align: bottom;
+   }   
 }
+
 
 /*------------------------------------*\
     STRUCTURE
@@ -535,11 +537,11 @@ header {
       height: 670px;
       border: 0;
       margin: 0;
-      position: absolute;
-      top: 0;
-      bottom: 0;
-      left: 0;
-      right: 0;
+/*       position: absolute;
+top: 0;
+bottom: 0;
+left: 0;
+right: 0; */
    }
    .circle {
       width: 360px;
@@ -553,6 +555,7 @@ header {
       z-index: 50;
       color: #fff;
       transition: $trs;
+      display: none;
       h5 {
          font-weight: 700;
          font-size: 20px;
@@ -582,6 +585,9 @@ header {
    ._bn_widget_ {
       margin: 0 auto;
       background-color: red;
+   }
+   .bnovo-form__header {
+      display: none !important;
    }
    form {
       width: 320px;
@@ -631,7 +637,7 @@ header {
 section {
    background-color: #f2f2f2;
    img {
-      max-width: 100%;
+/*       max-width: 100%; */
    }
 }
 .single,
@@ -640,7 +646,7 @@ section {
       article {
          width: 640px;
          margin: 0 auto;
-         padding: 60px 0;
+         padding: 40px 0;
          p {
             line-height: 1.8;
          }
@@ -1009,7 +1015,7 @@ footer {
             color: #fff;
             font-weight: 600;
             display: block;
-            width: 75px;
+            width: 90px;
             height: 43px;
             padding: 4px 0;
             text-align: center;
