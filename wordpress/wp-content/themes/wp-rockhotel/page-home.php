@@ -26,11 +26,16 @@
 			</div>
 			<!-- /.go-bottom -->
 
+			<div class="heading-rocker">
+				<h4>Рок-отель в центре Батуми</h4>
+				<h5>Живи в 50 метрах от моря за 42$ в сутки</h5>
+				<div class="mick-jagger"></div>
+			</div>
+			<!-- /.heading-rocker -->
 		</aside>
 		 <!-- /.home-slider --> 
 
 		<div id="scroll"></div>
-
 		<?php get_template_part('select-rooms'); ?>
 
 		 <aside class="five-slides">
