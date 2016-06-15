@@ -21,14 +21,11 @@
 	</script>
 		<aside class="home-slider">
 			<?php putRevSlider("home-slider") ?>
-			<div class="go-bottom">
-				<a href="<?php echo home_url(); ?>#scroll"></a>
-			</div>
 			<!-- /.go-bottom -->
 
 			<div class="heading-rocker">
 				<h4>Рок-отель в центре Батуми</h4>
-				<h5>Живи в 50 метрах от моря за 42$ в сутки</h5>
+				<h5>Живи в 50 метрах от моря за 27$ в сутки</h5>
 				<div class="mick-jagger"></div>
 			</div>
 			<!-- /.heading-rocker -->
@@ -40,7 +37,14 @@
 
 		 <aside class="five-slides">
 		 	<div class="inner">
-		 		<?php putRevSlider("five-slides") ?>
+		 		<?php
+				$lang = get_bloginfo("language");
+				if('pl-PL' == $lang) {
+					putRevSlider("five-pl");
+				} else {
+					putRevSlider("five-slides");
+				}
+				?>
 		 	</div>
 		 </aside>
 		 <!-- /.five-slides -->
@@ -53,11 +57,14 @@
 			$image = get_sub_field('img');
 			$content = get_sub_field('description');
 			$titles = get_sub_field('title');
+			$link = get_sub_field('link');
 
 			?>
-			<div class="carousell-container">
-				<img src="<?php echo $image; ?>" alt="<?php echo $title; ?>">
-				<h5><?php echo $titles; ?><span><?php echo $content; ?></span></h5>
+			<div class="carousell-container"> <!-- TODO -->
+				<a href="<?php echo $link; ?>">
+					<img src="<?php echo $image; ?>" alt="<?php echo $title; ?>">
+					<h5><?php echo $titles; ?><span><?php echo $content; ?></span></h5>
+				</a>
 			</div>
 			<?php endwhile; ?>
 
@@ -76,6 +83,7 @@
 			<h5>Мы ждем вас уже сейчас!</h5>
 			<div id="_bn_widget2_">
 			</div>
+<!--
 			<script src="http://widget.bnovo.ru/js/bnovo.js"></script>
 			<script type="text/javascript">
 			  Bnovo_Widget.init(function(){
@@ -95,7 +103,7 @@
 			    });
 			  });
 			</script>
-
+-->
 		</aside>
 		<!-- /.block-with-from -->
 	</section>

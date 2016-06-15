@@ -16,6 +16,6 @@
 		<!-- /article -->
 	</section>
 	<!-- /section -->
+    <?php get_template_part('select-rooms'); ?>
 	<?php get_template_part('user-reviews'); ?>
-	<?php get_template_part('select-rooms'); ?>
 <?php get_footer(); ?>

@@ -186,3 +186,41 @@ msgstr ""
 
 #~ msgid "%s results for "
 #~ msgstr "%s Ergebnisse für "
+msgid "Rock hotel in the center of Batumi "
+msgstr ""
+
+msgid "Live in the 50 meters from the beach for $ 27 per night "
+msgstr ""
+
+msgid "Check in "
+msgstr ""
+
+msgid "Check out "
+msgstr ""
+
+msgid "Book online "
+msgstr ""
+
+msgid "Why do visitors choose us? "
+msgstr ""
+
+msgid "Why put it off until later? "
+msgstr ""
+
+msgid "We are waiting for you right now! "
+msgstr ""
+
+msgid "References about us "
+msgstr ""
+
+msgid "Name "
+msgstr ""
+
+msgid "e-mail "
+msgstr ""
+
+msgid "How can we help you? "
+msgstr ""
+
+msgid "Send "
+msgstr ""

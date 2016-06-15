@@ -6,15 +6,26 @@
 
 					<ul class="socialsisi">
 						<li class="soc-vk">
-							<a href="">VKONTAKTE</a>
+							<a href="https://vk.com/rock_hotel" target="_blank">VKONTAKTE</a>
 						</li>
 						<li class="soc-fb">
-							<a href="">FACEBOOK</a>
+							<a href="https://www.facebook.com/groups/rock.hotel/" target="_blank">FACEBOOK</a>
 						</li>
 						<li class="soc-gp">
-							<a href="">GOOGLE+</a>
+							<a href="https://plus.google.com/115826201895805500847/posts" target="_blank">GOOGLE+</a>
 						</li>
 					</ul><!-- socialsisi -->
+					<div class="logo">
+						<?php if ( is_front_page() && is_home() ){ } else { ?>
+						<a href="<?php echo home_url(); ?>">
+						<?php  } ?>
+						<!-- svg logo - toddmotto.com/mastering-svg-use-for-a-retina-web-fallbacks-with-png-script -->
+						<img src="<?php echo get_template_directory_uri(); ?>/img/logo.png" alt="<?php wp_title( '' ); ?>" title="<?php wp_title( '' ); ?>" class="logo-img">	
+						<?php if ( is_front_page() && is_home() ){ 
+						} else { ?>
+						</a>
+						<?php } ?>
+					</div>
 
 				</div>
 			</footer>
@@ -28,21 +39,36 @@
 		<script src="<?php echo get_template_directory_uri(); ?>/js/owl.new.js"></script>
 		<script src="http://widget.bnovo.ru/js/bnovo.js"></script>
 		<script type="text/javascript">
-		  Bnovo_Widget.init(function(){
-		    Bnovo_Widget.open('_bn_widget_', {
-		        type: "horizontal",
-		        lcode: "1234567890",
-		        lang: "ru",
-		        width: "960",
-		        background: "#af1f34",
-		        bg_alpha: "100",
-		        padding: "88",
-		        btn_background: "#57a41b",
-		        btn_background_over: "#719E5B",
-		        btn_textcolor: "#FFFFFF",
-		        btn_textover: "#FFFFFF"
-		    });
-		  });
+            Bnovo_Widget.init(function () {
+                Bnovo_Widget.open('_bn_widget_', {
+                    type: "horizontal",
+                    lcode: "1396516137",
+                    lang: "ru",
+                    width: "100%",
+                    background: "#af1f34",
+                    bg_alpha: "100",
+                    padding: "88",
+                    btn_background: "#57a41b",
+                    btn_background_over: "#719E5B",
+                    btn_textcolor: "#FFFFFF",
+                    btn_textover: "#FFFFFF",
+                    url: "http://rock-hotel.org/bronirovanie.htm"
+                });
+                Bnovo_Widget.open('_bn_widget2_', {
+                    type: "horizontal",
+                    lcode: "1396516137",
+                    lang: "ru",
+                    width: "100%",
+                    background: "#af1f34",
+                    bg_alpha: "100",
+                    padding: "88",
+                    btn_background: "#57a41b",
+                    btn_background_over: "#719E5B",
+                    btn_textcolor: "#FFFFFF",
+                    btn_textover: "#FFFFFF",
+                    url: "http://rock-hotel.org/bronirovanie.htm"
+                });
+            });
 		</script>	
 		
 		<!-- analytics -->

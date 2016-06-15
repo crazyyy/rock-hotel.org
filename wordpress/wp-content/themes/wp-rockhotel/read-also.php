@@ -1,7 +1,7 @@
 <div class="see-also">
 	<h6>Читайте также</h6>
 	<ul class="clearfix">
-		<?php query_posts("showposts=3&cat=1"); ?>
+		<?php query_posts("showposts=4&cat=1"); ?>
 		<?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
 		<li>
 			<!-- post thumbnail -->
