@@ -34,3 +34,5 @@
 [15-Jun-2016 04:43:52 UTC] PHP Warning:  Cannot modify header information - headers already sent by (output started at D:\Works\Verstka\rock-hotel.org\wordpress\wp-content\plugins\all-in-one-wp-security-and-firewall\classes\wp-security-general-init-tasks.php:17) in D:\Works\Verstka\rock-hotel.org\wordpress\wp-includes\option.php on line 824
 [15-Jun-2016 04:46:57 UTC] PHP Warning:  mysqli_query(): MySQL server has gone away in D:\Works\Verstka\rock-hotel.org\wordpress\wp-includes\wp-db.php on line 1811
 [15-Jun-2016 04:46:57 UTC] PHP Warning:  mysqli_query(): Error reading result set's header in D:\Works\Verstka\rock-hotel.org\wordpress\wp-includes\wp-db.php on line 1811
+[15-Jun-2016 21:46:50 UTC] PHP Warning:  mysqli_query(): MySQL server has gone away in D:\Works\Verstka\rock-hotel.org\wordpress\wp-includes\wp-db.php on line 1811
+[15-Jun-2016 21:46:51 UTC] PHP Warning:  mysqli_query(): Error reading result set's header in D:\Works\Verstka\rock-hotel.org\wordpress\wp-includes\wp-db.php on line 1811
