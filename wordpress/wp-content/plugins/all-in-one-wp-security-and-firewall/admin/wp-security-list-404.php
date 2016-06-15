@@ -85,6 +85,7 @@ class AIOWPSecurity_List_404 extends AIOWPSecurity_List_Table {
             'event_date' => 'Date',
             'status' => 'Lock Status',
         );
+        $columns = apply_filters('list_404_get_columns', $columns);
         return $columns;
     }
 
@@ -97,6 +98,7 @@ class AIOWPSecurity_List_404 extends AIOWPSecurity_List_Table {
             'referer_info' => array('referer_info', false),
             'event_date' => array('event_date', false),
         );
+        $sortable_columns = apply_filters('list_404_get_sortable_columns', $sortable_columns);
         return $sortable_columns;
     }
 
@@ -113,7 +115,7 @@ class AIOWPSecurity_List_404 extends AIOWPSecurity_List_Table {
     function process_bulk_action() {
         if ('bulk_block_ip' === $this->current_action()) {//Process delete bulk actions
             if (!isset($_REQUEST['item'])) {
-                AIOWPSecurity_Admin_Menu::show_msg_error_st(__('Please select some records using the checkboxes', 'aiowpsecurity'));
+                AIOWPSecurity_Admin_Menu::show_msg_error_st(__('Please select some records using the checkboxes', 'all-in-one-wp-security-and-firewall'));
             } else {
                 $this->block_ip(($_REQUEST['item']));
             }
@@ -121,14 +123,14 @@ class AIOWPSecurity_List_404 extends AIOWPSecurity_List_Table {
 
         if ('bulk_blacklist_ip' === $this->current_action()) {//Process delete bulk actions
             if (!isset($_REQUEST['item'])) {
-                AIOWPSecurity_Admin_Menu::show_msg_error_st(__('Please select some records using the checkboxes', 'aiowpsecurity'));
+                AIOWPSecurity_Admin_Menu::show_msg_error_st(__('Please select some records using the checkboxes', 'all-in-one-wp-security-and-firewall'));
             } else {
                 $this->blacklist_ip_address(($_REQUEST['item']));
             }
         }
         if ('delete' === $this->current_action()) {//Process delete bulk actions
             if (!isset($_REQUEST['item'])) {
-                AIOWPSecurity_Admin_Menu::show_msg_error_st(__('Please select some records using the checkboxes', 'aiowpsecurity'));
+                AIOWPSecurity_Admin_Menu::show_msg_error_st(__('Please select some records using the checkboxes', 'all-in-one-wp-security-and-firewall'));
             } else {
                 $this->delete_404_event_records(($_REQUEST['item']));
             }
@@ -144,6 +146,7 @@ class AIOWPSecurity_List_404 extends AIOWPSecurity_List_Table {
         $events_table = AIOWPSEC_TBL_LOGIN_LOCKDOWN;
         if (is_array($entries)) {
             //lock multiple records
+            $entries = array_filter($entries, 'is_numeric'); //discard non-numeric ID values
             $id_list = "(" .implode(",",$entries) .")"; //Create comma separate list for DB operation
             $events_table = AIOWPSEC_TBL_EVENTS;
             $query = "SELECT ip_or_host FROM $events_table WHERE ID IN ".$id_list;
@@ -181,6 +184,7 @@ class AIOWPSecurity_List_404 extends AIOWPSecurity_List_Table {
         
         if (is_array($entries)) {
             //Get the selected IP addresses
+            $entries = array_filter($entries, 'is_numeric'); //discard non-numeric ID values
             $id_list = "(" .implode(",",$entries) .")"; //Create comma separate list for DB operation
             $events_table = AIOWPSEC_TBL_EVENTS;
             $query = "SELECT ip_or_host FROM $events_table WHERE ID IN ".$id_list;
@@ -208,12 +212,11 @@ class AIOWPSecurity_List_404 extends AIOWPSecurity_List_Table {
             $aio_wp_security->configs->save_config(); //Save the configuration
 
             $write_result = AIOWPSecurity_Utility_Htaccess::write_to_htaccess(); //now let's write to the .htaccess file
-            if ($write_result == -1)
-            {
-                AIOWPSecurity_Admin_Menu::show_msg_error_st(__('The plugin was unable to write to the .htaccess file. Please edit file manually.','aiowpsecurity'));
-                $aio_wp_security->debug_logger->log_debug("AIOWPSecurity_Blacklist_Menu - The plugin was unable to write to the .htaccess file.");
-            }else{
+            if ( $write_result ) {
                 AIOWPSecurity_Admin_Menu::show_msg_updated_st(__('The selected IP addresses have been added to the blacklist and will be permanently blocked!', 'WPS'));
+            } else {
+                AIOWPSecurity_Admin_Menu::show_msg_error_st(__('The plugin was unable to write to the .htaccess file. Please edit file manually.','all-in-one-wp-security-and-firewall'));
+                $aio_wp_security->debug_logger->log_debug("AIOWPSecurity_Blacklist_Menu - The plugin was unable to write to the .htaccess file.");
             }
         }
         else{
@@ -236,6 +239,7 @@ class AIOWPSecurity_List_404 extends AIOWPSecurity_List_Table {
             {
                 //Delete multiple records
                 $entries = array_map( 'esc_sql', $entries); //escape every array element
+                $entries = array_filter($entries, 'is_numeric'); //discard non-numeric ID values
                 $id_list = "(" . implode(",", $entries) . ")"; //Create comma separate list for DB operation
                 $delete_command = "DELETE FROM " . $events_table . " WHERE id IN " . $id_list;
                 $result = $wpdb->query($delete_command);
@@ -249,7 +253,7 @@ class AIOWPSecurity_List_404 extends AIOWPSecurity_List_Table {
             if (!isset($nonce) ||!wp_verify_nonce($nonce, 'delete_404_log'))
             {
                 $aio_wp_security->debug_logger->log_debug("Nonce check failed for delete selected 404 event logs operation!",4);
-                die(__('Nonce check failed for delete selected 404 event logs operation!','aiowpsecurity'));
+                die(__('Nonce check failed for delete selected 404 event logs operation!','all-in-one-wp-security-and-firewall'));
             }
 
             //Delete single record
@@ -285,11 +289,15 @@ class AIOWPSecurity_List_404 extends AIOWPSecurity_List_Table {
 
         $orderby = !empty($orderby) ? esc_sql($orderby) : 'id';
         $order = !empty($order) ? esc_sql($order) : 'DESC';
+        
+        $orderby = AIOWPSecurity_Utility::sanitize_value_by_array($orderby, $sortable);
+        $order = AIOWPSecurity_Utility::sanitize_value_by_array($order, array('DESC' => '1', 'ASC' => '1'));
+
         if (isset($_POST['s'])) {
             $search_term = trim($_POST['s']);
             $data = $wpdb->get_results($wpdb->prepare("SELECT * FROM " . $events_table_name . " WHERE `ip_or_host` LIKE '%%%s%%' OR `url` LIKE '%%%s%%' OR `referer_info` LIKE '%%%s%%'", $search_term, $search_term, $search_term), ARRAY_A);
         } else {
-            $data = $wpdb->get_results("SELECT * FROM $events_table_name ORDER BY $orderby $order", ARRAY_A);
+            $data = $wpdb->get_results($wpdb->prepare("SELECT * FROM $events_table_name WHERE event_type=%s ORDER BY $orderby $order",'404'), ARRAY_A);
         }
         $new_data = array();
         foreach ($data as $row) {
