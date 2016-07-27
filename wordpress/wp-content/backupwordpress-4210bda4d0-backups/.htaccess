@@ -1,0 +1,11 @@
+
+# BEGIN BackUpWordPress
+# Этот файл .htaccess гарантирует, что другие люди не могут загрузить Ваши файлы резервных копий.
+
+<IfModule mod_rewrite.c>
+RewriteEngine On
+RewriteCond %{QUERY_STRING} !key=4210bda4d08389b34e4e150f721c510f
+RewriteRule (.*) - [F]
+</IfModule>
+
+# END BackUpWordPress

@@ -1,0 +1,1 @@
+<?php die(); ?>{"headers":{"Content-Encoding":"Content-Encoding: gzip","Vary":"Vary: Accept-Encoding, Cookie","Content-Type":"Content-Type: text\/html; charset=UTF-8","Last-Modified":"Last-Modified: Thu, 21 Jul 2016 04:21:31 GMT"},"uri":"rock-hotel.org\/sitemap-misc.html","blog_id":1,"post":0,"key":"rock-hotel.org80\/sitemap-misc.htmlgzip"}

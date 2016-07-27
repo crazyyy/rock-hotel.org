@@ -41,14 +41,19 @@ RewriteCond %{REQUEST_METHOD} ^(TRACE|TRACK)
 RewriteRule .* - [F]
 #AIOWPS_DISABLE_TRACE_TRACK_END
 #AIOWPS_FORBID_PROXY_COMMENTS_START
-RewriteCond %{REQUEST_METHOD} =POST
-RewriteCond %{HTTP:VIA}%{HTTP:FORWARDED}%{HTTP:USERAGENT_VIA}%{HTTP:X_FORWARDED_FOR}%{HTTP:PROXY_CONNECTION} !^$ [OR]
-RewriteCond %{HTTP:XPROXY_CONNECTION}%{HTTP:HTTP_PC_REMOTE_ADDR}%{HTTP:HTTP_CLIENT_IP} !^$
-RewriteCond %{REQUEST_URI} !^/(wp-login.php|wp-admin/|wp-content/plugins/|wp-includes/).* [NC]
-RewriteRule .* - [F,NS,L]
+RewriteCond %{REQUEST_METHOD} ^POST
+RewriteCond %{HTTP:VIA} !^$ [OR]
+RewriteCond %{HTTP:FORWARDED} !^$ [OR]
+RewriteCond %{HTTP:USERAGENT_VIA} !^$ [OR]
+RewriteCond %{HTTP:X_FORWARDED_FOR} !^$ [OR]
+RewriteCond %{HTTP:X_FORWARDED_HOST} !^$ [OR]
+RewriteCond %{HTTP:PROXY_CONNECTION} !^$ [OR]
+RewriteCond %{HTTP:XPROXY_CONNECTION} !^$ [OR]
+RewriteCond %{HTTP:HTTP_PC_REMOTE_ADDR} !^$ [OR]
+RewriteCond %{HTTP:HTTP_CLIENT_IP} !^$
+RewriteRule wp-comments-post\.php - [F]
 #AIOWPS_FORBID_PROXY_COMMENTS_END
 #AIOWPS_DENY_BAD_QUERY_STRINGS_START
-RewriteCond %{QUERY_STRING} tag=     [NC,OR]
 RewriteCond %{QUERY_STRING} ftp:     [NC,OR]
 RewriteCond %{QUERY_STRING} http:    [NC,OR]
 RewriteCond %{QUERY_STRING} https:   [NC,OR]
@@ -63,7 +68,6 @@ RedirectMatch 403 \,
 RedirectMatch 403 \:
 RedirectMatch 403 \;
 RedirectMatch 403 \=
-RedirectMatch 403 \@
 RedirectMatch 403 \[
 RedirectMatch 403 \]
 RedirectMatch 403 \^
@@ -160,15 +164,5 @@ RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteRule . /index.php [L]
 </IfModule>
+
 # END WordPress
-
-# supress php errors
-php_flag display_startup_errors off
-php_flag display_errors off
-php_flag html_errors off
-php_value docref_root 0
-php_value docref_ext 0
-
-# enable PHP error logging
-php_flag  log_errors on
-php_value error_log  d:\Works\Verstka\rock-hotel.org\wordpress\PHP_errors.log
