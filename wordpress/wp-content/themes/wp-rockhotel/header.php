@@ -26,7 +26,6 @@
   </script>
 
   <!-- FB Всі хто заходив на rock-hotel.org і не бронював -->
-
   <script>(function() {
     var _fbq = window._fbq || (window._fbq = []);
     if (!_fbq.loaded) {
@@ -76,7 +75,13 @@
         <li><a href="">Geo</a></li>
       </ul>
 
-      <a href="tel:+995422200351" class="phone">+995422200351 +380667797502</a>
+      <ul class="phone-block">
+        <li class="phone phone_top"><a href="tel:+995422200351">+995422200351</a></li>
+        <li class="phone phone_bottom"><a href="tel:+380667797502">+380667797502</a></li>
+      </ul><!-- /.phone-block -->
+
+
+
 
     </header>
     <!-- /header -->
