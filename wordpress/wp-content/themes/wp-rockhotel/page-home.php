@@ -2,35 +2,32 @@
 
   <!-- section -->
   <section role="main">
-  <script>
-  $(function() {
-    $('a[href*=#]:not([href=#])').click(function() {
-      if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
+    <script>
+    $(function() {
+      $('a[href*=#]:not([href=#])').click(function() {
+        if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
 
-        var target = $(this.hash);
-        target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
-        if (target.length) {
-          $('html,body').animate({
-            scrollTop: target.offset().top
-          }, 1000);
-          return false;
+          var target = $(this.hash);
+          target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
+          if (target.length) {
+            $('html,body').animate({
+              scrollTop: target.offset().top
+            }, 1000);
+            return false;
+          }
         }
-      }
+      });
     });
-  });
-  </script>
+    </script>
     <aside class="home-slider">
-
       <!-- /.go-bottom -->
-
       <div class="heading-rocker">
         <h4>Рок-отель в центре Батуми</h4>
         <h5>в 50 метрах от моря</h5>
         <div class="mick-jagger"></div>
       </div>
       <!-- /.heading-rocker -->
-    </aside>
-     <!-- /.home-slider -->
+    </aside><!-- /.home-slider -->
 
     <div id="scroll"></div>
     <?php get_template_part('select-rooms'); ?>
