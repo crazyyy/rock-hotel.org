@@ -66,8 +66,9 @@ textarea {
 body {
   font-family: 'Open Sans', sans-serif;
   font-size: 16px;
-min-width: 320px;
   font-weight: 300;
+
+  min-width: 320px;
 
   color: $maincolor;
 }
@@ -119,8 +120,8 @@ min-width: 320px;
 }
 header,
 article {
-max-width: 980px;
-width: 100%;
+  width: 100%;
+  max-width: 980px;
   margin: 0 auto;
 }
 
@@ -174,7 +175,9 @@ header {
   }
   .lang-selector {
     position: relative;
-display: none;
+
+    display: none;
+
     width: 250px;
     padding: 45px 0 0;
 
@@ -456,7 +459,8 @@ display: none;
 }
 .five-slides {
   /* height: 870px; */
-min-height: 870px;
+  min-height: 870px;
+
   background-image: url(../img/bg/five-slides.jpg);
   background-repeat: no-repeat;
   background-position: center;

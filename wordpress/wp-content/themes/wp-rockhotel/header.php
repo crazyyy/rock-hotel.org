@@ -2,8 +2,9 @@
 <html <?php language_attributes(); ?> class="no-js">
 <head>
   <meta name='yandex-verification' content='5d4d8aebcc712c12' />
-
+  <meta name='yandex-verification' content='7215266389a43a8b' />
   <meta charset="<?php bloginfo( 'charset' ); ?>">
+
   <title><?php wp_title( '' ); ?><?php if ( wp_title( '', false ) ) { echo ' :'; } ?> <?php bloginfo( 'name' ); ?></title>
 
   <!-- dns prefetch -->
@@ -19,11 +20,6 @@
 
   <!-- css + javascript -->
   <?php wp_head(); ?>
-  <script>
-  !function(){
-    conditionizr()
-  }()
-  </script>
 
   <!-- FB Всі хто заходив на rock-hotel.org і не бронював -->
   <script>(function() {
@@ -41,7 +37,7 @@
   window._fbq = window._fbq || [];
   window._fbq.push(['track', 'PixelInitialized', {}]);
   </script>
-  <meta name='yandex-verification' content='7215266389a43a8b' />
+
 <body <?php body_class(); ?>>
 
   <!-- wrapper -->
@@ -80,8 +76,4 @@
         <li class="phone phone_bottom"><a href="tel:+380667797502">+380667797502</a></li>
       </ul><!-- /.phone-block -->
 
-
-
-
-    </header>
-    <!-- /header -->
+    </header><!-- /header -->
