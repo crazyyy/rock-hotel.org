@@ -20,6 +20,7 @@
     });
     </script>
     <aside class="home-slider">
+      <?php putRevSlider("home-slider") ?>
       <!-- /.go-bottom -->
       <div class="heading-rocker">
         <h4>Рок-отель в центре Батуми</h4>
@@ -34,7 +35,11 @@
 
      <aside class="five-slides">
        <div class="inner">
-
+          <?php $lang = get_bloginfo("language"); if('pl-PL' == $lang) {
+            putRevSlider("five-pl");
+          } else {
+            putRevSlider("five-slides");
+          } ?>
        </div>
      </aside>
      <!-- /.five-slides -->
