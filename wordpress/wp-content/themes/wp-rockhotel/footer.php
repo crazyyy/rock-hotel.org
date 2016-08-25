@@ -15,17 +15,21 @@
               <a href="https://plus.google.com/115826201895805500847/posts" target="_blank">GOOGLE+</a>
             </li>
           </ul><!-- socialsisi -->
+<!--
+
           <div class="logo">
             <?php if ( is_front_page() && is_home() ){ } else { ?>
             <a href="<?php echo home_url(); ?>">
             <?php  } ?>
-            <!-- svg logo - toddmotto.com/mastering-svg-use-for-a-retina-web-fallbacks-with-png-script -->
+
             <img src="<?php echo get_template_directory_uri(); ?>/img/logo.png" alt="<?php wp_title( '' ); ?>" title="<?php wp_title( '' ); ?>" class="logo-img">
             <?php if ( is_front_page() && is_home() ){
             } else { ?>
             </a>
             <?php } ?>
           </div>
+
+      -->
 
         </div>
       </footer>

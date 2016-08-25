@@ -38,6 +38,8 @@
   window._fbq.push(['track', 'PixelInitialized', {}]);
   </script>
 
+  <link href="<?php bloginfo('template_directory') ?>/css/font-awesome.min.css" type="text/css" rel="stylesheet">
+
 <body <?php body_class(); ?>>
 
   <!-- wrapper -->
@@ -46,9 +48,28 @@
     <!-- header -->
     <header class="header clearfix" role="banner">
       <!-- nav -->
-      <nav class="nav" role="navigation">
-        <?php wpeHeadNav(); ?>
-      </nav>
+      <div id="Wrapp">
+            <nav class="nav" role="navigation">
+
+                                            <?php wpeHeadNav(); ?>
+
+
+            </nav>
+      </div>
+      <div class="sea_botton_wrap"><a class="sea_botton" href="#" onclick="openbox('Wrapp');return false;">Меню<i class="fa fa-bars fa-2x"></i></a></div>
+<script>
+    function openbox(id,tt) {
+  var div = document.getElementById(id);
+  var tt_div = document.getElementById(tt);
+  if(div.style.display == 'block') {
+    div.style.display = 'none';
+  }
+  else {
+    div.style.display = 'block';
+  }
+  }
+</script>
+
       <!-- /nav -->
 
       <!-- logo -->
