@@ -1481,6 +1481,12 @@ body{
 }
 
 
+.sea_botton_wrap .phone-block{
+  display: none;
+  width: 100%;
+  padding: 0;
+}
+
 @media (max-width: 1000px) {
 .rev_slider_wrapper,.rev_slider{
   width: 100%!important;
@@ -1610,6 +1616,18 @@ footer ul{
     display: none;
     width: 100%;
 }
+.sea_botton_wrap .phone-block{
+  width: 50%;
+  float: left;
+}
+.sea_botton_wrap .phone-block .phone{
+  margin-left: 10px;
+      height: 22px;
+}
+.sea_botton_wrap .phone-block .phone a{
+  font-size: 14px;
+}
+
 .sea_botton_wrap{
 display: block;
     position: fixed;

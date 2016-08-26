@@ -49,6 +49,7 @@
     <header class="header clearfix" role="banner">
       <!-- nav -->
       <div id="Wrapp">
+
             <nav class="nav" role="navigation">
 
                                             <?php wpeHeadNav(); ?>
@@ -56,17 +57,29 @@
 
             </nav>
       </div>
-      <div class="sea_botton_wrap"><a class="sea_botton" href="#" onclick="openbox('Wrapp');return false;">Меню<i class="fa fa-bars fa-2x"></i></a></div>
+      <div class="sea_botton_wrap">
+                  <ul id="phone-block" class="phone-block">
+        <li class="phone phone_top"><a href="tel:+995422200351">+995422200351</a></li>
+        <li class="phone phone_bottom"><a href="tel:+380667797502">+380667797502</a></li>
+      </ul><!-- /.phone-block --><a class="sea_botton" href="#" onclick="openbox('Wrapp');return false;">Меню<i class="fa fa-bars fa-2x"></i></a></div>
 <script>
-    function openbox(id,tt) {
-  var div = document.getElementById(id);
-  var tt_div = document.getElementById(tt);
-  if(div.style.display == 'block') {
-    div.style.display = 'none';
-  }
-  else {
-    div.style.display = 'block';
-  }
+  function openbox(id,tt) {
+    var div = document.getElementById(id);
+    var tt_div = document.getElementById(tt);
+    var phone = document.getElementById('phone-block');
+
+    if(div.style.display == 'block') {
+      div.style.display = 'none';
+    }
+    else {
+      div.style.display = 'block';
+    }
+    if(phone.style.display == 'block') {
+      phone.style.display = 'none';
+    }
+    else {
+      phone.style.display = 'block';
+    }
   }
 </script>
 
