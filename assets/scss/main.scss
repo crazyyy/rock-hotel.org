@@ -287,7 +287,7 @@ header {
 
       width: 100%;
 
-      content: 'звоните круглосуточно';
+      content: 'Отдел бронирования';
       text-align: center;
 
       color: $greycolor;
@@ -326,6 +326,14 @@ header {
         @include sprite($sprite-ico-phone);
       }
     }
+
+.phone_bottom:before {
+    background-image: url(../img/vib.png);
+    background-position: center;
+    width: 20px;
+    left: -3px;
+}
+
   }
 }
 .home-slider {
